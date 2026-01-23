@@ -876,6 +876,54 @@
             max-width: 400px;
             margin: 20px auto;
         }
+
+        /* Database Status Indicator */
+        .db-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            background: #f1f5f9;
+            color: #64748b;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .db-status.connected {
+            background: #dcfce7;
+            color: #15803d;
+            border-color: #bbf7d0;
+        }
+
+        .db-status.syncing {
+            background: #e0f2fe;
+            color: #0369a1;
+            border-color: #bae6fd;
+        }
+
+        .db-status.error {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #fecaca;
+        }
+
+        .spin {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 
@@ -893,6 +941,10 @@
             <div class="today-stats">
                 <div class="stat-item">Bills: <span id="today-bills">0</span></div>
                 <div class="stat-item">Sale: <span id="today-total">Rs 0</span></div>
+            </div>
+            <div id="db-status-indicator" class="db-status" onclick="switchReport('cloud'); openReports();">
+                <i data-lucide="cloud-off" style="width: 14px; height: 14px;"></i>
+                <span id="db-status-text">Disconnected</span>
             </div>
             <div class="clock" id="clock">00:00:00</div>
             <button class="qty-btn" onclick="resetToDefaults()" title="Reset Menu to Defaults">
@@ -2322,8 +2374,44 @@
         updateCart();
         updateTodayStats();
         loadCloudConfig();
+        checkCloudConnection();
 
         // --- Cloud Sync Logic ---
+        function updateDBStatus(state, message, icon = 'cloud') {
+            const el = document.getElementById('db-status-indicator');
+            const text = document.getElementById('db-status-text');
+            if (!el) return;
+
+            el.className = 'db-status ' + state;
+            text.innerText = message;
+
+            let iconHtml = `<i data-lucide="${icon}" style="width: 14px; height: 14px;" class="${state === 'syncing' ? 'spin' : ''}"></i>`;
+            el.querySelector('i').outerHTML = iconHtml;
+            lucide.createIcons();
+        }
+
+        async function checkCloudConnection() {
+            const config = JSON.parse(localStorage.getItem('mrcod_cloud_config'));
+            if (!config || !config.token || !config.repo) {
+                updateDBStatus('error', 'Offline', 'cloud-off');
+                return;
+            }
+
+            try {
+                const url = `https://api.github.com/repos/${config.repo}`;
+                const res = await fetch(url, {
+                    headers: { 'Authorization': `token ${config.token}` }
+                });
+                if (res.ok) {
+                    updateDBStatus('connected', 'Cloud Connected', 'cloud-check');
+                } else {
+                    updateDBStatus('error', 'Auth Error', 'alert-circle');
+                }
+            } catch (e) {
+                updateDBStatus('error', 'No Connection', 'wifi-off');
+            }
+        }
+
         function saveCloudConfig() {
             const config = {
                 token: document.getElementById('gh-token').value,
@@ -2331,6 +2419,7 @@
                 path: document.getElementById('gh-path').value
             };
             localStorage.setItem('mrcod_cloud_config', JSON.stringify(config));
+            checkCloudConnection();
         }
 
         function loadCloudConfig() {
@@ -2355,6 +2444,7 @@
             statusEl.style.background = '#e0f2fe';
             statusEl.style.color = '#0369a1';
             statusEl.innerText = 'Syncing to GitHub...';
+            updateDBStatus('syncing', 'Uploading...', 'refresh-cw');
 
             try {
                 const data = {
@@ -2394,6 +2484,8 @@
                     statusEl.style.background = '#dcfce7';
                     statusEl.style.color = '#15803d';
                     statusEl.innerText = 'Success! Cloud database updated.';
+                    updateDBStatus('connected', 'Sync Success', 'cloud-check');
+                    setTimeout(() => updateDBStatus('connected', 'Cloud Connected', 'cloud-check'), 3000);
                 } else {
                     const err = await putRes.json();
                     throw new Error(err.message || 'Unknown error');
@@ -2403,6 +2495,7 @@
                 statusEl.style.background = '#fee2e2';
                 statusEl.style.color = '#b91c1c';
                 statusEl.innerText = 'Sync failed: ' + error.message;
+                updateDBStatus('error', 'Upload Failed', 'alert-triangle');
             }
         }
 
@@ -2420,6 +2513,7 @@
             statusEl.style.background = '#e0f2fe';
             statusEl.style.color = '#0369a1';
             statusEl.innerText = 'Fetching from Cloud...';
+            updateDBStatus('syncing', 'Downloading...', 'download-cloud');
 
             try {
                 const url = `https://api.github.com/repos/${config.repo}/contents/${config.path}`;
@@ -2442,6 +2536,7 @@
                     statusEl.style.background = '#dcfce7';
                     statusEl.style.color = '#15803d';
                     statusEl.innerText = 'Cloud data restored successfully! Reloading...';
+                    updateDBStatus('connected', 'Downloaded!', 'check-circle');
                     setTimeout(() => location.reload(), 1500);
                 } else {
                     throw new Error('File not found or access denied.');
@@ -2451,6 +2546,7 @@
                 statusEl.style.background = '#fee2e2';
                 statusEl.style.color = '#b91c1c';
                 statusEl.innerText = 'Fetch failed: ' + error.message;
+                updateDBStatus('error', 'Fetch Failed', 'alert-octagon');
             }
         }
     </script>

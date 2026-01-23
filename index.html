@@ -2461,17 +2461,27 @@
                 return;
             }
 
+            const repoPath = config.repo.replace('https://github.com/', '').replace(/\/$/, '');
+
             try {
-                const url = `https://api.github.com/repos/${config.repo}`;
+                const url = `https://api.github.com/repos/${repoPath}`;
                 const res = await fetch(url, {
-                    headers: { 'Authorization': `token ${config.token}` }
+                    headers: {
+                        'Authorization': `Bearer ${config.token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
                 });
                 if (res.ok) {
                     updateDBStatus('connected', 'Cloud Connected', 'cloud-check');
+                } else if (res.status === 401) {
+                    updateDBStatus('error', 'Invalid Token', 'key-round');
+                } else if (res.status === 404) {
+                    updateDBStatus('error', 'Repo Not Found', 'search-x');
                 } else {
                     updateDBStatus('error', 'Auth Error', 'alert-circle');
                 }
             } catch (e) {
+                console.error('Connection Check Error:', e);
                 updateDBStatus('error', 'No Connection', 'wifi-off');
             }
         }
@@ -2504,6 +2514,8 @@
                 return;
             }
 
+            const repoPath = config.repo.replace('https://github.com/', '').replace(/\/$/, '');
+
             statusEl.style.display = 'block';
             statusEl.style.background = '#e0f2fe';
             statusEl.style.color = '#0369a1';
@@ -2518,11 +2530,11 @@
                     updatedAt: new Date().toISOString()
                 };
 
-                const url = `https://api.github.com/repos/${config.repo}/contents/${config.path}`;
+                const url = `https://api.github.com/repos/${repoPath}/contents/${config.path}`;
 
                 // Get current file sha
                 const getRes = await fetch(url, {
-                    headers: { 'Authorization': `token ${config.token}` }
+                    headers: { 'Authorization': `Bearer ${config.token.trim()}` }
                 });
 
                 let sha = null;
@@ -2534,7 +2546,7 @@
                 const putRes = await fetch(url, {
                     method: 'PUT',
                     headers: {
-                        'Authorization': `token ${config.token}`,
+                        'Authorization': `Bearer ${config.token.trim()}`,
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
@@ -2573,6 +2585,8 @@
 
             if (!confirm('This will overwrite local data with cloud data. Continue?')) return;
 
+            const repoPath = config.repo.replace('https://github.com/', '').replace(/\/$/, '');
+
             statusEl.style.display = 'block';
             statusEl.style.background = '#e0f2fe';
             statusEl.style.color = '#0369a1';
@@ -2580,9 +2594,9 @@
             updateDBStatus('syncing', 'Downloading...', 'download-cloud');
 
             try {
-                const url = `https://api.github.com/repos/${config.repo}/contents/${config.path}`;
+                const url = `https://api.github.com/repos/${repoPath}/contents/${config.path}`;
                 const res = await fetch(url + '?t=' + Date.now(), {
-                    headers: { 'Authorization': `token ${config.token}` }
+                    headers: { 'Authorization': `Bearer ${config.token.trim()}` }
                 });
 
                 if (res.ok) {

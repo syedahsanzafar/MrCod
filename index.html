@@ -576,27 +576,81 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
-        .inventory-search {
+        /* Improved Form Layouts */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .inventory-sidebar h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-section-title {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .image-upload-wrapper {
             position: relative;
             margin-bottom: 20px;
         }
 
-        .inventory-search i {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            width: 16px;
-            height: 16px;
+        #imagePreview {
+            width: 100%;
+            height: 150px;
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #f8fafc;
+            overflow: hidden;
+            position: relative;
         }
 
-        .inventory-search input {
+        #imagePreview:hover {
+            border-color: var(--primary);
+            background: #fef2f2;
+        }
+
+        #imagePreview img {
             width: 100%;
-            padding: 10px 10px 10px 40px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            outline: none;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #imagePreview .upload-hint {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        #imagePreview .upload-hint i {
+            width: 32px;
+            height: 32px;
+            opacity: 0.5;
         }
 
         .inventory-table {
@@ -1067,73 +1121,82 @@
 
             <div style="display: grid; grid-template-columns: 340px 1fr; gap: 32px;">
                 <!-- Sidebar: Add/Edit Form -->
-                <div class="inventory-sidebar">
+                <div class="inventory-sidebar"
+                    style="background: white; border-radius: 20px; padding: 24px; box-shadow: var(--shadow-lg);">
                     <h3 id="inventoryFormTitle"
-                        style="margin-bottom: 20px; font-size: 18px; display: flex; align-items: center; gap: 8px;">
-                        <i data-lucide="plus-circle" style="width: 20px; height: 20px; color: var(--primary);"></i>
-                        Add New Item
+                        style="display: flex; align-items: center; gap: 10px; margin-bottom: 24px;">
+                        <i data-lucide="plus-circle" style="color: var(--primary);"></i> Add New Item
                     </h3>
                     <form id="itemForm">
                         <input type="hidden" id="itemId">
+
+                        <div class="form-section-title">
+                            <i data-lucide="info" style="width: 14px;"></i> Basic Information
+                        </div>
+
                         <div class="form-group">
-                            <label><i data-lucide="type" style="width: 12px; height: 12px; margin-right: 4px;"></i> Item
-                                Name</label>
+                            <label>Product Name</label>
                             <input type="text" id="itemName" placeholder="e.g. Zinger Burger" required>
                         </div>
-                        <div class="form-group">
-                            <label><i data-lucide="layers" style="width: 12px; height: 12px; margin-right: 4px;"></i>
-                                Category</label>
-                            <select id="itemCategory">
-                                <option value="fish">Fish</option>
-                                <option value="burgers">Burgers</option>
-                                <option value="chicken">Chicken</option>
-                                <option value="sides">Sides</option>
-                                <option value="drinks">Drinks</option>
-                                <option value="deals">Deals</option>
-                            </select>
-                        </div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+
+                        <div class="form-row">
                             <div class="form-group">
-                                <label><i data-lucide="dollar-sign"
-                                        style="width: 12px; height: 12px; margin-right: 4px;"></i> Cost (Rs)</label>
-                                <input type="number" id="itemCostPrice" required placeholder="Cost">
+                                <label>Category</label>
+                                <select id="itemCategory">
+                                    <option value="fish">Fish</option>
+                                    <option value="burgers">Burgers</option>
+                                    <option value="chicken">Chicken</option>
+                                    <option value="sides">Sides</option>
+                                    <option value="drinks">Drinks</option>
+                                    <option value="deals">Deals</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label><i data-lucide="tag" style="width: 12px; height: 12px; margin-right: 4px;"></i>
-                                    Sale (Rs)</label>
-                                <input type="number" id="itemPrice" required placeholder="Sale">
+                                <label>Stock Level</label>
+                                <input type="number" id="itemStock" required placeholder="0">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label><i data-lucide="package" style="width: 12px; height: 12px; margin-right: 4px;"></i>
-                                Initial Stock</label>
-                            <input type="number" id="itemStock" required placeholder="0">
+
+                        <div class="form-section-title" style="margin-top: 10px;">
+                            <i data-lucide="banknote" style="width: 14px;"></i> Pricing Details
                         </div>
-                        <div class="form-group">
-                            <label><i data-lucide="image" style="width: 12px; height: 12px; margin-right: 4px;"></i>
-                                Product Image</label>
-                            <div style="display: flex; flex-direction: column; gap: 10px;">
-                                <input type="file" id="itemImageFile" accept="image/*" onchange="previewImage(this)"
-                                    style="font-size: 12px;">
-                                <input type="hidden" id="itemImage">
-                                <div id="imagePreview"
-                                    style="width: 100%; height: 120px; border: 2px dashed var(--border); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #fff;">
-                                    <img id="previewImg" style="max-width: 100%; max-height: 100%; display: none;">
-                                    <div id="previewPlaceholder"
-                                        style="color: var(--text-muted); font-size: 12px; text-align: center;">
-                                        <i data-lucide="upload-cloud"
-                                            style="width: 24px; height: 24px; margin-bottom: 4px; opacity: 0.5;"></i>
-                                        <br>No Image Selected
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Cost Price (Rs)</label>
+                                <input type="number" id="itemCostPrice" required placeholder="0">
+                            </div>
+                            <div class="form-group" style="padding: 0;">
+                                <label>Sale Price (Rs)</label>
+                                <input type="number" id="itemPrice" required placeholder="0">
+                            </div>
+                        </div>
+
+                        <div class="form-section-title" style="margin-top: 10px;">
+                            <i data-lucide="image" style="width: 14px;"></i> Item Media
+                        </div>
+
+                        <div class="image-upload-wrapper">
+                            <div id="imagePreview" onclick="document.getElementById('itemImageFile').click()">
+                                <img id="previewImg" style="display: none;">
+                                <div id="previewPlaceholder" class="upload-hint">
+                                    <i data-lucide="upload-cloud"></i>
+                                    <div>
+                                        <strong>Click to upload</strong>
+                                        <p style="font-size: 11px;">Max 2MB, JPG/PNG</p>
                                     </div>
                                 </div>
                             </div>
+                            <input type="file" id="itemImageFile" accept="image/*" onchange="previewImage(this)"
+                                style="display: none;">
+                            <input type="hidden" id="itemImage">
                         </div>
-                        <div style="display: flex; gap: 10px; margin-top: 10px;">
+
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 12px; margin-top: 20px;">
                             <button type="button" class="report-nav-btn" onclick="resetItemForm()"
-                                style="flex: 1;">Cancel</button>
-                            <button type="submit" class="checkout-btn" style="flex: 2; font-size: 14px; padding: 12px;">
-                                <i data-lucide="save" style="width: 16px; height: 16px;"></i>
-                                Save Product
+                                style="width: 100%; justify-content: center; height: 50px;">Clear</button>
+                            <button type="submit" class="checkout-btn" style="width: 100%; font-size: 15px;">
+                                <i data-lucide="plus"></i> Save Item
                             </button>
                         </div>
                     </form>
@@ -1864,6 +1927,7 @@
             document.getElementById('inventorySearch').value = '';
             renderInventoryList();
             document.getElementById('inventoryModal').style.display = 'flex';
+            lucide.createIcons();
         }
 
         function filterInventory() {

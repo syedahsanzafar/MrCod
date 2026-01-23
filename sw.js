@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mrcod-pos-v3';
+const CACHE_NAME = 'mrcod-pos-v4';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',

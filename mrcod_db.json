@@ -1,0 +1,9 @@
+{
+  "inventory": [],
+  "sales": [],
+  "expenses": [],
+  "settings": {
+    "restaurantName": "Mr Cod",
+    "currency": "Rs"
+  }
+}

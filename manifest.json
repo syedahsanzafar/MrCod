@@ -2,7 +2,9 @@
   "name": "MR. COD - Premium POS",
   "short_name": "Mr. Cod",
   "description": "A premium POS system for Mr. Cod Muzaffarabad",
+  "id": "/index.html",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ef4444",
@@ -10,12 +12,20 @@
     {
       "src": "assets/logo.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "assets/logo.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "orientation": "any"

@@ -2467,7 +2467,7 @@
                 const url = `https://api.github.com/repos/${repoPath}`;
                 const res = await fetch(url, {
                     headers: {
-                        'Authorization': `Bearer ${config.token}`,
+                        'Authorization': `Bearer ${config.token.trim()}`,
                         'Accept': 'application/vnd.github.v3+json'
                     }
                 });
@@ -2601,7 +2601,9 @@
 
                 if (res.ok) {
                     const fileData = await res.json();
-                    const content = decodeURIComponent(escape(atob(fileData.content)));
+                    // Remove newlines from base64 content before decoding
+                    const base64Content = fileData.content.replace(/\s/g, '');
+                    const content = decodeURIComponent(escape(atob(base64Content)));
                     const data = JSON.parse(content);
 
                     if (data.inventory) {
@@ -2617,7 +2619,8 @@
                     updateDBStatus('connected', 'Downloaded!', 'check-circle');
                     setTimeout(() => location.reload(), 1500);
                 } else {
-                    throw new Error('File not found or access denied.');
+                    const errorData = await res.json().catch(() => ({}));
+                    throw new Error(errorData.message || `Server returned ${res.status}`);
                 }
             } catch (error) {
                 console.error(error);

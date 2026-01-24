@@ -29,7 +29,7 @@
       "name": "French Fries",
       "category": "sides",
       "price": 150,
-      "stock": 197,
+      "stock": 196,
       "image": "assets/4.png"
     },
     {
@@ -37,7 +37,7 @@
       "name": "Coke",
       "category": "drinks",
       "price": 80,
-      "stock": 495,
+      "stock": 494,
       "image": "assets/5.png"
     },
     {
@@ -306,8 +306,29 @@
           "category": "burgers"
         }
       ]
+    },
+    {
+      "orderId": 1000,
+      "date": "2026-01-24T07:10:43.141Z",
+      "amount": 230,
+      "items": [
+        {
+          "name": "Coke",
+          "qty": 1,
+          "price": 80,
+          "costPrice": 0,
+          "category": "drinks"
+        },
+        {
+          "name": "French Fries",
+          "qty": 1,
+          "price": 150,
+          "costPrice": 0,
+          "category": "sides"
+        }
+      ]
     }
   ],
   "expenses": {},
-  "updatedAt": "2026-01-24T06:51:46.663Z"
+  "updatedAt": "2026-01-24T07:10:47.829Z"
 }

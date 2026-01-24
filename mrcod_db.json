@@ -1,24 +1,6 @@
 {
   "inventory": [
     {
-      "id": 13,
-      "name": "Fried Chicken Piece",
-      "category": "chicken",
-      "costPrice": 149,
-      "price": 249,
-      "stock": 50,
-      "image": "assets/icon_chicken.png"
-    },
-    {
-      "id": 14,
-      "name": "Fire Cracker Burger",
-      "category": "burgers",
-      "costPrice": 329,
-      "price": 549,
-      "stock": 50,
-      "image": "assets/icon_burger.png"
-    },
-    {
       "id": 15,
       "name": "Jalapeno Burger",
       "category": "burgers",
@@ -111,5 +93,5 @@
   ],
   "sales": [],
   "expenses": {},
-  "updatedAt": "2026-01-24T17:54:25.380Z"
+  "updatedAt": "2026-01-24T17:54:29.361Z"
 }

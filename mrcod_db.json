@@ -1,15 +1,6 @@
 {
   "inventory": [
     {
-      "id": 5,
-      "name": "1 Piece Fish",
-      "category": "fish",
-      "costPrice": 299,
-      "price": 499,
-      "stock": 50,
-      "image": "assets/icon_fish.png"
-    },
-    {
       "id": 6,
       "name": "3 Piece Fish",
       "category": "fish",
@@ -183,5 +174,5 @@
   ],
   "sales": [],
   "expenses": {},
-  "updatedAt": "2026-01-24T17:50:46.891Z"
+  "updatedAt": "2026-01-24T17:54:10.654Z"
 }

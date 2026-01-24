@@ -1,33 +1,6 @@
 {
   "inventory": [
     {
-      "id": 21,
-      "name": "Chicken Tikka Pizza (L)",
-      "category": "pizza",
-      "costPrice": 839,
-      "price": 1399,
-      "stock": 50,
-      "image": "assets/icon_pizza.png"
-    },
-    {
-      "id": 22,
-      "name": "Crown Crust Pizza",
-      "category": "pizza",
-      "costPrice": 839,
-      "price": 1399,
-      "stock": 50,
-      "image": "assets/icon_pizza.png"
-    },
-    {
-      "id": 23,
-      "name": "Zinger Combo Deal",
-      "category": "deals",
-      "costPrice": 419,
-      "price": 699,
-      "stock": 50,
-      "image": "assets/icon_burger.png"
-    },
-    {
       "id": 24,
       "name": "Family Feast",
       "category": "deals",
@@ -39,5 +12,5 @@
   ],
   "sales": [],
   "expenses": {},
-  "updatedAt": "2026-01-24T17:54:40.811Z"
+  "updatedAt": "2026-01-24T17:54:47.521Z"
 }

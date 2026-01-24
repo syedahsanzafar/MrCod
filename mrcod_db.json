@@ -73,7 +73,7 @@
       "costPrice": 0,
       "price": 1999,
       "stock": 19,
-      "image": "assets/deal1.jpg"
+      "image": "https://raw.githubusercontent.com/syedahsanzafar/MrCod/master/images/deal_3:_family_pack.png"
     }
   ],
   "sales": [
@@ -309,5 +309,5 @@
     }
   ],
   "expenses": {},
-  "updatedAt": "2026-01-24T06:51:19.931Z"
+  "updatedAt": "2026-01-24T06:51:46.663Z"
 }

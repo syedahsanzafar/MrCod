@@ -1,13 +1,17 @@
-const CACHE_NAME = 'mrcod-pos-v5';
+const CACHE_NAME = 'mrcod-pos-v6';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
     './manifest.json',
     './assets/logo.png',
-    './mrcod_db.json',
-    'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap',
-    'https://unpkg.com/lucide@latest',
-    'https://cdn.jsdelivr.net/npm/chart.js'
+    './assets/fonts.css',
+    './assets/lucide.min.js',
+    './assets/chart.min.js',
+    './assets/inter-400.ttf',
+    './assets/inter-700.ttf',
+    './assets/outfit-400.ttf',
+    './assets/outfit-700.ttf',
+    './mrcod_db.json'
 ];
 
 // Install Event

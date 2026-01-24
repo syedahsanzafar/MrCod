@@ -15,14 +15,8 @@
     <link rel="apple-touch-icon" href="assets/logo.png">
 
     <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet" onerror="console.warn('Google Fonts failed to load');">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"
-        onerror="console.warn('Lucide Icons failed to load'); window.lucideFailed=true;"></script>
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" onerror="console.warn('Chart.js failed to load');"></script>
+    <link rel="stylesheet" href="assets/fonts.css">
+
     <style>
         :root {
             --primary: #ef4444;
@@ -1582,6 +1576,11 @@
         </div>
     </div>
 
+    <!-- Defer Loading of External Libs -->
+    <script src="assets/lucide.min.js" defer
+        onerror="console.warn('Lucide Icons failed to load'); window.lucideFailed=true;"></script>
+    <script src="assets/chart.min.js" defer onerror="console.warn('Chart.js failed to load');"></script>
+
     <script>
         // Init Lucide
         function safeCreateIcons() {
@@ -1917,6 +1916,9 @@
 
             // Trigger Print
             window.print();
+
+            // Attempt cloud sync in background
+            syncToCloud(true); // silent = true
 
             // Clear Cart
             cart = [];
@@ -2541,12 +2543,33 @@
             reader.readAsText(file);
         }
 
-        // Initial Render
-        renderProducts();
-        updateCart();
-        updateTodayStats();
-        loadCloudConfig();
-        checkCloudConnection();
+        // Initial Render & Setup
+        window.addEventListener('load', () => {
+            renderProducts();
+            updateCart();
+            updateTodayStats();
+            loadCloudConfig();
+
+            // Try initializing icons after load
+            safeCreateIcons();
+
+            // Initial cloud check
+            checkCloudConnection();
+        });
+
+        // Network Status Listeners
+        window.addEventListener('online', () => {
+            console.log('Online detected. Syncing...');
+            updateDBStatus('connected', 'Back Online', 'wifi');
+            checkCloudConnection().then(() => {
+                syncToCloud(true); // Auto-sync silently
+            });
+        });
+
+        window.addEventListener('offline', () => {
+            console.log('Offline detected.');
+            updateDBStatus('error', 'Offline Mode', 'wifi-off');
+        });
 
         // --- Cloud Sync Logic ---
         function updateDBStatus(state, message, icon = 'cloud') {
@@ -2558,7 +2581,8 @@
             text.innerText = message;
 
             let iconHtml = `<i data-lucide="${icon}" style="width: 14px; height: 14px;" class="${state === 'syncing' ? 'spin' : ''}"></i>`;
-            el.querySelector('i').outerHTML = iconHtml;
+            const iconEl = el.querySelector('i');
+            if (iconEl) iconEl.outerHTML = iconHtml;
             safeCreateIcons();
         }
 
@@ -2573,7 +2597,7 @@
 
             try {
                 const url = `https://api.github.com/repos/${repoPath}`;
-                const res = await fetch(url, {
+                const res = await fetch(url + '?t=' + Date.now(), { // Cache buster
                     headers: {
                         'Authorization': `Bearer ${config.token.trim()}`,
                         'Accept': 'application/vnd.github.v3+json'
@@ -2583,10 +2607,13 @@
                     updateDBStatus('connected', 'Cloud Connected', 'cloud-check');
                 } else if (res.status === 401) {
                     updateDBStatus('error', 'Invalid Token', 'key-round');
+                    console.error('Cloud Error: 401 Unauthorized. Check your GitHub Token.');
                 } else if (res.status === 404) {
                     updateDBStatus('error', 'Repo Not Found', 'search-x');
+                    console.error('Cloud Error: 404 Repo Not Found. Check your Repo URL.');
                 } else {
                     updateDBStatus('error', 'Auth Error', 'alert-circle');
+                    console.error(`Cloud Error: ${res.status} ${res.statusText}`);
                 }
             } catch (e) {
                 console.error('Connection Check Error:', e);
@@ -2613,21 +2640,39 @@
             }
         }
 
-        async function syncToCloud() {
+        async function syncToCloud(silent = false) {
             const config = JSON.parse(localStorage.getItem('mrcod_cloud_config'));
             const statusEl = document.getElementById('sync-status');
+
+            // If offline, just queue it (conceptually) and return
+            if (!navigator.onLine) {
+                console.log('App is offline. Data saved locally.');
+                updateDBStatus('error', 'Saved Locally', 'save');
+                if (!silent) {
+                    statusEl.style.display = 'block';
+                    statusEl.style.background = '#fee2e2';
+                    statusEl.style.color = '#b91c1c';
+                    statusEl.innerText = 'Offline: Data saved to browser. Will sync when online.';
+                }
+                return;
+            }
+
             if (!config || !config.token || !config.repo) {
-                alert('Please configure GitHub settings first.');
-                switchReport('cloud');
+                if (!silent) {
+                    alert('Please configure GitHub settings first.');
+                    switchReport('cloud');
+                }
                 return;
             }
 
             const repoPath = config.repo.replace('https://github.com/', '').replace(/\/$/, '');
 
-            statusEl.style.display = 'block';
-            statusEl.style.background = '#e0f2fe';
-            statusEl.style.color = '#0369a1';
-            statusEl.innerText = 'Syncing to GitHub...';
+            if (!silent) {
+                statusEl.style.display = 'block';
+                statusEl.style.background = '#e0f2fe';
+                statusEl.style.color = '#0369a1';
+                statusEl.innerText = 'Syncing to GitHub...';
+            }
             updateDBStatus('syncing', 'Uploading...', 'refresh-cw');
 
             try {
@@ -2649,6 +2694,9 @@
                 if (getRes.status === 200) {
                     const fileData = await getRes.json();
                     sha = fileData.sha;
+                } else if (getRes.status !== 404) {
+                    // If error other than 404 (not found), throw
+                    // But if 404, we create new file, so sha stays null
                 }
 
                 const putRes = await fetch(url, {
@@ -2665,9 +2713,11 @@
                 });
 
                 if (putRes.ok) {
-                    statusEl.style.background = '#dcfce7';
-                    statusEl.style.color = '#15803d';
-                    statusEl.innerText = 'Success! Cloud database updated.';
+                    if (!silent) {
+                        statusEl.style.background = '#dcfce7';
+                        statusEl.style.color = '#15803d';
+                        statusEl.innerText = 'Success! Cloud database updated.';
+                    }
                     updateDBStatus('connected', 'Sync Success', 'cloud-check');
                     setTimeout(() => updateDBStatus('connected', 'Cloud Connected', 'cloud-check'), 3000);
                 } else {
@@ -2676,10 +2726,17 @@
                 }
             } catch (error) {
                 console.error(error);
-                statusEl.style.background = '#fee2e2';
-                statusEl.style.color = '#b91c1c';
-                statusEl.innerText = 'Sync failed: ' + error.message;
-                updateDBStatus('error', 'Upload Failed', 'alert-triangle');
+                if (!silent) {
+                    statusEl.style.background = '#fee2e2';
+                    statusEl.style.color = '#b91c1c';
+                    statusEl.innerText = 'Sync failed: ' + error.message;
+                }
+                // If it's a network error (failed to fetch), treat as offline save
+                if (error.message.includes('Failed to fetch') || !navigator.onLine) {
+                    updateDBStatus('error', 'Saved Locally', 'save');
+                } else {
+                    updateDBStatus('error', 'Upload Failed', 'alert-triangle');
+                }
             }
         }
 

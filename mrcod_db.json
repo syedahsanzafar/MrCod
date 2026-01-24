@@ -1,313 +1,196 @@
 {
   "inventory": [
     {
-      "id": 1,
-      "name": "Fish & Chips",
-      "category": "fish",
-      "price": 850,
-      "stock": 49,
-      "image": "assets/1.png"
-    },
-    {
-      "id": 2,
-      "name": "Zinger Burger",
-      "category": "burgers",
-      "price": 450,
-      "stock": 98,
-      "image": "assets/2.png"
-    },
-    {
-      "id": 3,
-      "name": "Chicken Burger",
-      "category": "burgers",
-      "price": 350,
-      "stock": 78,
-      "image": "assets/2.png"
-    },
-    {
       "id": 4,
-      "name": "French Fries",
-      "category": "sides",
-      "price": 150,
-      "stock": 197,
-      "image": "assets/4.png"
+      "name": "Fish Burger",
+      "category": "burgers",
+      "costPrice": 500,
+      "price": 900,
+      "stock": 2,
+      "image": "https://raw.githubusercontent.com/syedahsanzafar/MrCod/master/images/fish_burger.png"
     },
     {
       "id": 5,
-      "name": "Coke",
-      "category": "drinks",
-      "price": 80,
-      "stock": 495,
-      "image": "assets/5.png"
+      "name": "1 Piece Fish",
+      "category": "fish",
+      "costPrice": 299,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
     },
     {
       "id": 6,
-      "name": "Fish Burger",
+      "name": "3 Piece Fish",
       "category": "fish",
-      "price": 400,
-      "stock": 47,
-      "image": "assets/1.png"
+      "costPrice": 749,
+      "price": 1249,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
     },
     {
       "id": 7,
-      "name": "Deal 1: Burger Combo",
-      "category": "deals",
-      "costPrice": 0,
-      "price": 999,
-      "stock": 29,
-      "image": "assets/deal1.jpg"
+      "name": "5 Piece Fish",
+      "category": "fish",
+      "costPrice": 1349,
+      "price": 2249,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
     },
     {
       "id": 8,
-      "name": "Deal 2: Fish Special",
-      "category": "deals",
-      "costPrice": 0,
-      "price": 1499,
-      "stock": 24,
-      "image": "https://raw.githubusercontent.com/syedahsanzafar/MrCod/master/images/deal_2:_fish_special.png"
+      "name": "Finger Fish (4 pcs)",
+      "category": "fish",
+      "costPrice": 269,
+      "price": 449,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
     },
     {
       "id": 9,
-      "name": "Deal 3: Family Pack",
+      "name": "Fish Shawarma",
+      "category": "fish",
+      "costPrice": 239,
+      "price": 399,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 10,
+      "name": "Crispy Bites",
+      "category": "chicken",
+      "costPrice": 269,
+      "price": 449,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 11,
+      "name": "Chicken Nuggets (6 pcs)",
+      "category": "chicken",
+      "costPrice": 239,
+      "price": 399,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 12,
+      "name": "Chicken Shawarma",
+      "category": "chicken",
+      "costPrice": 209,
+      "price": 349,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 13,
+      "name": "Fried Chicken Piece",
+      "category": "chicken",
+      "costPrice": 149,
+      "price": 249,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 14,
+      "name": "Fire Cracker Burger",
+      "category": "burgers",
+      "costPrice": 329,
+      "price": 549,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 15,
+      "name": "Jalapeno Burger",
+      "category": "burgers",
+      "costPrice": 359,
+      "price": 599,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 16,
+      "name": "Crunch Burger",
+      "category": "burgers",
+      "costPrice": 209,
+      "price": 349,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 17,
+      "name": "Grilled Burger",
+      "category": "burgers",
+      "costPrice": 359,
+      "price": 599,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 18,
+      "name": "Tower Burger",
+      "category": "burgers",
+      "costPrice": 479,
+      "price": 799,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 19,
+      "name": "Chicken Tikka Pizza (S)",
+      "category": "pizza",
+      "costPrice": 299,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 20,
+      "name": "Chicken Tikka Pizza (M)",
+      "category": "pizza",
+      "costPrice": 659,
+      "price": 1099,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 21,
+      "name": "Chicken Tikka Pizza (L)",
+      "category": "pizza",
+      "costPrice": 839,
+      "price": 1399,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 22,
+      "name": "Crown Crust Pizza",
+      "category": "pizza",
+      "costPrice": 839,
+      "price": 1399,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 23,
+      "name": "Zinger Combo Deal",
       "category": "deals",
-      "costPrice": 0,
-      "price": 1999,
-      "stock": 19,
-      "image": "https://raw.githubusercontent.com/syedahsanzafar/MrCod/master/images/deal_3:_family_pack.png"
+      "costPrice": 419,
+      "price": 699,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 24,
+      "name": "Family Feast",
+      "category": "deals",
+      "costPrice": 1349,
+      "price": 2249,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
     }
   ],
-  "sales": [
-    {
-      "date": "2026-01-05T06:26:26.482Z",
-      "amount": 1650,
-      "items": [
-        {
-          "name": "Fish & Chips",
-          "qty": 1,
-          "price": 850,
-          "category": "fish"
-        },
-        {
-          "name": "Zinger Burger",
-          "qty": 1,
-          "price": 450,
-          "category": "burgers"
-        },
-        {
-          "name": "Chicken Burger",
-          "qty": 1,
-          "price": 350,
-          "category": "burgers"
-        }
-      ]
-    },
-    {
-      "date": "2026-01-24T05:55:41.310Z",
-      "amount": 230,
-      "items": [
-        {
-          "name": "French Fries",
-          "qty": 1,
-          "price": 150,
-          "costPrice": 0,
-          "category": "sides"
-        },
-        {
-          "name": "Coke",
-          "qty": 1,
-          "price": 80,
-          "costPrice": 0,
-          "category": "drinks"
-        }
-      ]
-    },
-    {
-      "date": "2026-01-24T05:59:06.147Z",
-      "amount": 80,
-      "items": [
-        {
-          "name": "Coke",
-          "qty": 1,
-          "price": 80,
-          "costPrice": 0,
-          "category": "drinks"
-        }
-      ]
-    },
-    {
-      "date": "2026-01-24T06:05:52.854Z",
-      "amount": 80,
-      "items": [
-        {
-          "name": "Coke",
-          "qty": 1,
-          "price": 80,
-          "costPrice": 0,
-          "category": "drinks"
-        }
-      ]
-    },
-    {
-      "date": "2026-01-24T06:07:05.441Z",
-      "amount": 400,
-      "items": [
-        {
-          "name": "Fish Burger",
-          "qty": 1,
-          "price": 400,
-          "costPrice": 0,
-          "category": "fish"
-        }
-      ]
-    },
-    {
-      "orderId": 1000,
-      "date": "2026-01-24T06:11:37.285Z",
-      "amount": 350,
-      "items": [
-        {
-          "name": "Chicken Burger",
-          "qty": 1,
-          "price": 350,
-          "costPrice": 0,
-          "category": "burgers"
-        }
-      ]
-    },
-    {
-      "orderId": 1001,
-      "date": "2026-01-24T06:13:02.805Z",
-      "amount": 6377,
-      "items": [
-        {
-          "name": "Deal 2: Fish Special",
-          "qty": 1,
-          "price": 1499,
-          "costPrice": 0,
-          "category": "deals"
-        },
-        {
-          "name": "Deal 3: Family Pack",
-          "qty": 1,
-          "price": 1999,
-          "costPrice": 0,
-          "category": "deals"
-        },
-        {
-          "name": "Deal 1: Burger Combo",
-          "qty": 1,
-          "price": 999,
-          "costPrice": 0,
-          "category": "deals"
-        },
-        {
-          "name": "Fish & Chips",
-          "qty": 1,
-          "price": 850,
-          "costPrice": 0,
-          "category": "fish"
-        },
-        {
-          "name": "Zinger Burger",
-          "qty": 1,
-          "price": 450,
-          "costPrice": 0,
-          "category": "burgers"
-        },
-        {
-          "name": "Chicken Burger",
-          "qty": 1,
-          "price": 350,
-          "costPrice": 0,
-          "category": "burgers"
-        },
-        {
-          "name": "French Fries",
-          "qty": 1,
-          "price": 150,
-          "costPrice": 0,
-          "category": "sides"
-        },
-        {
-          "name": "Coke",
-          "qty": 1,
-          "price": 80,
-          "costPrice": 0,
-          "category": "drinks"
-        }
-      ]
-    },
-    {
-      "orderId": 1002,
-      "date": "2026-01-24T06:16:00.792Z",
-      "amount": 150,
-      "items": [
-        {
-          "name": "French Fries",
-          "qty": 1,
-          "price": 150,
-          "costPrice": 0,
-          "category": "sides"
-        }
-      ]
-    },
-    {
-      "orderId": 1003,
-      "date": "2026-01-24T06:21:24.783Z",
-      "amount": 400,
-      "items": [
-        {
-          "name": "Fish Burger",
-          "qty": 1,
-          "price": 400,
-          "costPrice": 0,
-          "category": "fish"
-        }
-      ]
-    },
-    {
-      "orderId": 1004,
-      "date": "2026-01-24T06:32:36.158Z",
-      "amount": 80,
-      "items": [
-        {
-          "name": "Coke",
-          "qty": 1,
-          "price": 80,
-          "costPrice": 0,
-          "category": "drinks"
-        }
-      ]
-    },
-    {
-      "orderId": 1005,
-      "date": "2026-01-24T06:49:44.518Z",
-      "amount": 400,
-      "items": [
-        {
-          "name": "Fish Burger",
-          "qty": 1,
-          "price": 400,
-          "costPrice": 0,
-          "category": "fish"
-        }
-      ]
-    },
-    {
-      "orderId": 1006,
-      "date": "2026-01-24T06:49:50.968Z",
-      "amount": 450,
-      "items": [
-        {
-          "name": "Zinger Burger",
-          "qty": 1,
-          "price": 450,
-          "costPrice": 0,
-          "category": "burgers"
-        }
-      ]
-    }
-  ],
+  "sales": [],
   "expenses": {},
-  "updatedAt": "2026-01-24T17:48:02.979Z"
+  "updatedAt": "2026-01-24T17:50:43.627Z"
 }

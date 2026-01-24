@@ -13,7 +13,7 @@
       "name": "Zinger Burger",
       "category": "burgers",
       "price": 450,
-      "stock": 99,
+      "stock": 98,
       "image": "assets/2.png"
     },
     {
@@ -45,7 +45,7 @@
       "name": "Fish Burger",
       "category": "fish",
       "price": 400,
-      "stock": 48,
+      "stock": 47,
       "image": "assets/1.png"
     },
     {
@@ -278,8 +278,36 @@
           "category": "drinks"
         }
       ]
+    },
+    {
+      "orderId": 1005,
+      "date": "2026-01-24T06:49:44.518Z",
+      "amount": 400,
+      "items": [
+        {
+          "name": "Fish Burger",
+          "qty": 1,
+          "price": 400,
+          "costPrice": 0,
+          "category": "fish"
+        }
+      ]
+    },
+    {
+      "orderId": 1006,
+      "date": "2026-01-24T06:49:50.968Z",
+      "amount": 450,
+      "items": [
+        {
+          "name": "Zinger Burger",
+          "qty": 1,
+          "price": 450,
+          "costPrice": 0,
+          "category": "burgers"
+        }
+      ]
     }
   ],
   "expenses": {},
-  "updatedAt": "2026-01-24T06:47:18.386Z"
+  "updatedAt": "2026-01-24T06:50:11.029Z"
 }

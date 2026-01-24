@@ -1,60 +1,6 @@
 {
   "inventory": [
     {
-      "id": 15,
-      "name": "Jalapeno Burger",
-      "category": "burgers",
-      "costPrice": 359,
-      "price": 599,
-      "stock": 50,
-      "image": "assets/icon_burger.png"
-    },
-    {
-      "id": 16,
-      "name": "Crunch Burger",
-      "category": "burgers",
-      "costPrice": 209,
-      "price": 349,
-      "stock": 50,
-      "image": "assets/icon_burger.png"
-    },
-    {
-      "id": 17,
-      "name": "Grilled Burger",
-      "category": "burgers",
-      "costPrice": 359,
-      "price": 599,
-      "stock": 50,
-      "image": "assets/icon_burger.png"
-    },
-    {
-      "id": 18,
-      "name": "Tower Burger",
-      "category": "burgers",
-      "costPrice": 479,
-      "price": 799,
-      "stock": 50,
-      "image": "assets/icon_burger.png"
-    },
-    {
-      "id": 19,
-      "name": "Chicken Tikka Pizza (S)",
-      "category": "pizza",
-      "costPrice": 299,
-      "price": 499,
-      "stock": 50,
-      "image": "assets/icon_pizza.png"
-    },
-    {
-      "id": 20,
-      "name": "Chicken Tikka Pizza (M)",
-      "category": "pizza",
-      "costPrice": 659,
-      "price": 1099,
-      "stock": 50,
-      "image": "assets/icon_pizza.png"
-    },
-    {
       "id": 21,
       "name": "Chicken Tikka Pizza (L)",
       "category": "pizza",
@@ -93,5 +39,5 @@
   ],
   "sales": [],
   "expenses": {},
-  "updatedAt": "2026-01-24T17:54:29.361Z"
+  "updatedAt": "2026-01-24T17:54:40.811Z"
 }

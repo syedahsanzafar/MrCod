@@ -1,69 +1,6 @@
 {
   "inventory": [
     {
-      "id": 6,
-      "name": "3 Piece Fish",
-      "category": "fish",
-      "costPrice": 749,
-      "price": 1249,
-      "stock": 50,
-      "image": "assets/icon_fish.png"
-    },
-    {
-      "id": 7,
-      "name": "5 Piece Fish",
-      "category": "fish",
-      "costPrice": 1349,
-      "price": 2249,
-      "stock": 50,
-      "image": "assets/icon_fish.png"
-    },
-    {
-      "id": 8,
-      "name": "Finger Fish (4 pcs)",
-      "category": "fish",
-      "costPrice": 269,
-      "price": 449,
-      "stock": 50,
-      "image": "assets/icon_fish.png"
-    },
-    {
-      "id": 9,
-      "name": "Fish Shawarma",
-      "category": "fish",
-      "costPrice": 239,
-      "price": 399,
-      "stock": 50,
-      "image": "assets/icon_fish.png"
-    },
-    {
-      "id": 10,
-      "name": "Crispy Bites",
-      "category": "chicken",
-      "costPrice": 269,
-      "price": 449,
-      "stock": 50,
-      "image": "assets/icon_chicken.png"
-    },
-    {
-      "id": 11,
-      "name": "Chicken Nuggets (6 pcs)",
-      "category": "chicken",
-      "costPrice": 239,
-      "price": 399,
-      "stock": 50,
-      "image": "assets/icon_chicken.png"
-    },
-    {
-      "id": 12,
-      "name": "Chicken Shawarma",
-      "category": "chicken",
-      "costPrice": 209,
-      "price": 349,
-      "stock": 50,
-      "image": "assets/icon_chicken.png"
-    },
-    {
       "id": 13,
       "name": "Fried Chicken Piece",
       "category": "chicken",
@@ -174,5 +111,5 @@
   ],
   "sales": [],
   "expenses": {},
-  "updatedAt": "2026-01-24T17:54:10.654Z"
+  "updatedAt": "2026-01-24T17:54:25.380Z"
 }

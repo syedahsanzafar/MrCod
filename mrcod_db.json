@@ -1,15 +1,6 @@
 {
   "inventory": [
     {
-      "id": 4,
-      "name": "Fish Burger",
-      "category": "burgers",
-      "costPrice": 500,
-      "price": 900,
-      "stock": 2,
-      "image": "https://raw.githubusercontent.com/syedahsanzafar/MrCod/master/images/fish_burger.png"
-    },
-    {
       "id": 5,
       "name": "1 Piece Fish",
       "category": "fish",
@@ -192,5 +183,5 @@
   ],
   "sales": [],
   "expenses": {},
-  "updatedAt": "2026-01-24T17:50:43.627Z"
+  "updatedAt": "2026-01-24T17:50:46.891Z"
 }

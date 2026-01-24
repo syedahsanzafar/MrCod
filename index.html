@@ -17,11 +17,12 @@
     <!-- Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" onerror="console.warn('Google Fonts failed to load');">
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"
+        onerror="console.warn('Lucide Icons failed to load'); window.lucideFailed=true;"></script>
     <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" onerror="console.warn('Chart.js failed to load');"></script>
     <style>
         :root {
             --primary: #ef4444;
@@ -752,21 +753,42 @@
             display: none;
         }
 
+        #kitchen-token-container {
+            display: none;
+        }
+
         @media print {
             body * {
                 visibility: hidden;
             }
 
+            #kitchen-token-container,
+            #kitchen-token-container *,
             #print-container,
             #print-container * {
                 visibility: visible;
             }
 
-            #print-container {
+            /* Kitchen Token at the top */
+            #kitchen-token-container {
                 display: block;
                 position: absolute;
                 left: 0;
                 top: 0;
+                width: 80mm;
+                padding: 2mm;
+                background: white;
+                color: black;
+                font-family: 'Courier New', Courier, monospace;
+            }
+
+            /* Customer Bill immediately after kitchen token */
+            #print-container {
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 80mm;
+                /* Position below the kitchen token */
                 width: 80mm;
                 padding: 2mm;
                 background: white;
@@ -793,6 +815,12 @@
                 padding-top: 5px;
                 font-weight: bold;
                 text-align: right;
+            }
+
+            /* Ensure no page breaks between sections */
+            @page {
+                size: 80mm auto;
+                margin: 0;
             }
         }
 
@@ -1512,6 +1540,28 @@
             Please come again.
         </div>
     </div>
+
+    <!-- Kitchen Token Print Template -->
+    <div id="kitchen-token-container">
+        <div style="text-align: center; border: 2px dashed black; padding: 10px; margin-bottom: 10px;">
+            <h2 style="margin: 5px 0; font-size: 18px;">Token No: <span id="token-number">1</span></h2>
+            <p style="margin: 5px 0; font-size: 12px; font-weight: bold;" id="token-type">KOT</p>
+            <div style="border-top: 1px dashed black; margin: 8px 0; padding-top: 8px;">
+                <table style="width: 100%; font-size: 11px;">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left; padding: 3px 0;">Item</th>
+                            <th style="text-align: right; padding: 3px 0;">Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody id="token-items">
+                        <!-- Token items here -->
+                    </tbody>
+                </table>
+            </div>
+            <p style="margin: 8px 0 5px 0; font-size: 11px; font-weight: bold;" id="token-order-type">Dine In</p>
+        </div>
+    </div>
     <!-- Login Modal -->
     <div id="loginModal" class="modal" style="display: flex;">
         <div class="modal-content" style="max-width: 400px; text-align: center;">
@@ -1534,7 +1584,12 @@
 
     <script>
         // Init Lucide
-        lucide.createIcons();
+        function safeCreateIcons() {
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                lucide.createIcons();
+            }
+        }
+        safeCreateIcons();
 
         let cart = [];
         let currentCategory = 'all';
@@ -1769,7 +1824,7 @@
                         <p>Order is empty</p>
                     </div>
                 `;
-                lucide.createIcons();
+                safeCreateIcons();
                 document.getElementById('subtotal').innerText = 'Rs 0.00';
                 document.getElementById('total').innerText = 'Rs 0.00';
                 cartBadge.innerText = '0';
@@ -1846,7 +1901,7 @@
 
             saveInventory();
             // Store sale with costPrice captured at time of sale
-            recordSale(total, cart.map(i => {
+            const orderId = recordSale(total, cart.map(i => {
                 const inv = inventory.find(inv => inv.id === i.id);
                 return {
                     name: i.name,
@@ -1867,17 +1922,27 @@
             cart = [];
             updateCart();
             closeModal('checkoutModal');
-            alert('Bill Processed & Saved!');
+            // Removed alert notification as requested
+        }
+
+        function getNextOrderId() {
+            let lastOrderId = parseInt(localStorage.getItem('mrcod_last_order_id')) || 999;
+            lastOrderId++;
+            localStorage.setItem('mrcod_last_order_id', lastOrderId.toString());
+            return lastOrderId;
         }
 
         function recordSale(amount, orderItems) {
             let sales = JSON.parse(localStorage.getItem('mrcod_sales')) || [];
+            const orderId = getNextOrderId();
             sales.push({
+                orderId: orderId,
                 date: new Date().toISOString(),
                 amount: amount,
                 items: orderItems // Store items with costPrice for profit reporting
             });
             localStorage.setItem('mrcod_sales', JSON.stringify(sales));
+            return orderId;
         }
 
         function updateTodayStats() {
@@ -1896,8 +1961,12 @@
             const printTotals = document.getElementById('print-totals');
             const totalValue = document.getElementById('total').innerText;
 
+            // Get the next sequential order ID
+            const currentOrderId = parseInt(localStorage.getItem('mrcod_last_order_id')) || 999;
+            const nextOrderId = currentOrderId + 1;
+
             document.getElementById('print-date').innerText = `Date: ${new Date().toLocaleString()}`;
-            document.getElementById('print-order-id').innerText = `Order ID: #${Math.floor(Math.random() * 9000) + 1000}`;
+            document.getElementById('print-order-id').innerText = `Order ID: #${nextOrderId}`;
 
             printItems.innerHTML = '';
             cart.forEach(item => {
@@ -1921,13 +1990,36 @@
                 <div class="print-item"><span style="font-weight: bold;">TOTAL:</span> <span style="font-weight: bold;">${total.toFixed(2)}</span></div>
                 <div class="print-item"><span>CHANGE:</span> <span>${Math.max(0, change).toFixed(2)}</span></div>
             `;
+
+            // Render Kitchen Token
+            renderKitchenToken(nextOrderId);
+        }
+
+        function renderKitchenToken(orderId) {
+            const tokenNumber = document.getElementById('token-number');
+            const tokenItems = document.getElementById('token-items');
+
+            // Calculate token number (sequential from order ID)
+            const tokenNum = orderId - 999; // So order 1000 = token 1
+            tokenNumber.innerText = tokenNum;
+
+            // Populate token items
+            tokenItems.innerHTML = '';
+            cart.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td style="text-align: left; padding: 3px 0;">${item.name}</td>
+                    <td style="text-align: right; padding: 3px 0;">x ${item.qty}</td>
+                `;
+                tokenItems.appendChild(row);
+            });
         }
 
         function openInventory() {
             document.getElementById('inventorySearch').value = '';
             renderInventoryList();
             document.getElementById('inventoryModal').style.display = 'flex';
-            lucide.createIcons();
+            safeCreateIcons();
         }
 
         function filterInventory() {
@@ -1991,7 +2083,7 @@
                 list.innerHTML = `<tr><td colspan="6" style="text-align: center; padding: 40px; color: var(--text-muted);">No items found matching your search.</td></tr>`;
             }
 
-            lucide.createIcons();
+            safeCreateIcons();
         }
 
         document.getElementById('itemForm').onsubmit = async function (e) {
@@ -2001,7 +2093,7 @@
 
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i data-lucide="loader" class="spin"></i> Syncing...';
-            lucide.createIcons();
+            safeCreateIcons();
 
             const id = document.getElementById('itemId').value;
             const name = document.getElementById('itemName').value;
@@ -2041,7 +2133,7 @@
             resetItemForm();
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalBtnContent;
-            lucide.createIcons();
+            safeCreateIcons();
         };
 
         function resetItemForm() {
@@ -2054,7 +2146,7 @@
                 <i data-lucide="plus-circle" style="width: 20px; height: 20px; color: var(--primary);"></i>
                 Add New Item
             `;
-            lucide.createIcons();
+            safeCreateIcons();
         }
 
         function editItem(id) {
@@ -2081,7 +2173,24 @@
                 <i data-lucide="edit-3" style="width: 20px; height: 20px; color: var(--accent);"></i>
                 Edit Item: ${item.name}
             `;
-            lucide.createIcons();
+            safeCreateIcons();
+        }
+
+        function deleteItem(id) {
+            const item = inventory.find(i => i.id == id);
+            if (!item) return;
+
+            if (confirm(`Delete "${item.name}" from inventory? This action cannot be undone.`)) {
+                inventory = inventory.filter(i => i.id !== id);
+                saveInventory();
+                renderProducts();
+                renderInventoryList();
+                syncToCloud(); // Auto-sync to cloud after deletion
+            }
+        }
+
+        function openCategoryManager() {
+            alert('Category Manager feature coming soon!\n\nFor now, you can edit categories directly when adding/editing items.');
         }
 
         // Logic: Always use defaults from code unless explicitly reset
@@ -2105,7 +2214,6 @@
         ];
 
         const defaultSales = [{ "date": "2026-01-05T06:26:26.482Z", "amount": 1650, "items": [{ "name": "Fish & Chips", "qty": 1, "price": 850, "category": "fish" }, { "name": "Zinger Burger", "qty": 1, "price": 450, "category": "burgers" }, { "name": "Chicken Burger", "qty": 1, "price": 350, "category": "burgers" }] }];
-        ;
 
         // Load default sales and inventory if none exist
         if (!localStorage.getItem('mrcod_sales')) {
@@ -2451,7 +2559,7 @@
 
             let iconHtml = `<i data-lucide="${icon}" style="width: 14px; height: 14px;" class="${state === 'syncing' ? 'spin' : ''}"></i>`;
             el.querySelector('i').outerHTML = iconHtml;
-            lucide.createIcons();
+            safeCreateIcons();
         }
 
         async function checkCloudConnection() {

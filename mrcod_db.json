@@ -64,7 +64,7 @@
       "costPrice": 0,
       "price": 1499,
       "stock": 24,
-      "image": "assets/deal1.jpg"
+      "image": "https://raw.githubusercontent.com/syedahsanzafar/MrCod/master/images/deal_2:_fish_special.png"
     },
     {
       "id": 9,
@@ -309,5 +309,5 @@
     }
   ],
   "expenses": {},
-  "updatedAt": "2026-01-24T06:50:11.029Z"
+  "updatedAt": "2026-01-24T06:51:19.931Z"
 }

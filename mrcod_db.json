@@ -1,334 +1,862 @@
 {
   "inventory": [
     {
-      "id": 1,
-      "name": "Fish & Chips",
+      "id": 101,
+      "name": "1 Piece Fish",
       "category": "fish",
-      "price": 850,
-      "stock": 49,
-      "image": "assets/1.png"
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
     },
     {
-      "id": 2,
-      "name": "Zinger Burger",
+      "id": 102,
+      "name": "3 Piece Fish",
+      "category": "fish",
+      "costPrice": 750,
+      "price": 1249,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 103,
+      "name": "5 Piece Fish",
+      "category": "fish",
+      "costPrice": 1350,
+      "price": 2249,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 104,
+      "name": "1 Fish O Fillet",
+      "category": "fish",
+      "costPrice": 390,
+      "price": 649,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 105,
+      "name": "2 Fish O Fillet",
+      "category": "fish",
+      "costPrice": 630,
+      "price": 1049,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 106,
+      "name": "Finger Fish (4 Pcs)",
+      "category": "fish",
+      "costPrice": 270,
+      "price": 449,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 107,
+      "name": "Finger Fish Combo",
+      "category": "fish",
+      "costPrice": 360,
+      "price": 599,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 108,
+      "name": "Fish Shawarma",
+      "category": "fish",
+      "costPrice": 240,
+      "price": 399,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 109,
+      "name": "Fish Shawarma Combo",
+      "category": "fish",
+      "costPrice": 330,
+      "price": 549,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 110,
+      "name": "Fried Prawns",
+      "category": "fish",
+      "costPrice": 330,
+      "price": 549,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 111,
+      "name": "Fried Prawns Combo",
+      "category": "fish",
+      "costPrice": 360,
+      "price": 599,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 112,
+      "name": "Fish Crispy Bites",
+      "category": "fish",
+      "costPrice": 270,
+      "price": 449,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 113,
+      "name": "Fish Crispy Bites Combo",
+      "category": "fish",
+      "costPrice": 360,
+      "price": 599,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 201,
+      "name": "1 Chicken Piece",
+      "category": "chicken",
+      "costPrice": 180,
+      "price": 299,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 202,
+      "name": "2 Chicken Pieces",
+      "category": "chicken",
+      "costPrice": 360,
+      "price": 599,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 203,
+      "name": "9 Chicken Pieces",
+      "category": "chicken",
+      "costPrice": 1020,
+      "price": 1699,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 204,
+      "name": "Chicken Nuggets (6 Pcs)",
+      "category": "chicken",
+      "costPrice": 240,
+      "price": 399,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 205,
+      "name": "Chicken Nuggets (9 Pcs)",
+      "category": "chicken",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 206,
+      "name": "Chicken Wings (6 Pcs)",
+      "category": "chicken",
+      "costPrice": 270,
+      "price": 449,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 207,
+      "name": "Chicken Wings (12 Pcs)",
+      "category": "chicken",
+      "costPrice": 420,
+      "price": 699,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 208,
+      "name": "Crispy Bites",
+      "category": "chicken",
+      "costPrice": 270,
+      "price": 449,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 209,
+      "name": "Crispy Bites Combo",
+      "category": "chicken",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 210,
+      "name": "Chicken Strip",
+      "category": "chicken",
+      "costPrice": 270,
+      "price": 449,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 211,
+      "name": "Chicken Shawarma",
+      "category": "chicken",
+      "costPrice": 210,
+      "price": 349,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 212,
+      "name": "Chicken Shawarma Combo",
+      "category": "chicken",
+      "costPrice": 270,
+      "price": 449,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 301,
+      "name": "Fire Cracker Burger",
       "category": "burgers",
-      "price": 450,
-      "stock": 98,
-      "image": "assets/2.png"
+      "costPrice": 270,
+      "price": 449,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
     },
     {
-      "id": 3,
-      "name": "Chicken Burger",
+      "id": 302,
+      "name": "Fire Cracker Combo",
       "category": "burgers",
-      "price": 350,
-      "stock": 78,
-      "image": "assets/2.png"
+      "costPrice": 360,
+      "price": 599,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
     },
     {
-      "id": 4,
-      "name": "French Fries",
+      "id": 303,
+      "name": "Jalapeno Burger",
+      "category": "burgers",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 304,
+      "name": "Jalapeno Combo",
+      "category": "burgers",
+      "costPrice": 420,
+      "price": 699,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 305,
+      "name": "Crunch Burger",
+      "category": "burgers",
+      "costPrice": 180,
+      "price": 299,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 306,
+      "name": "Crunch Combo",
+      "category": "burgers",
+      "costPrice": 270,
+      "price": 449,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 307,
+      "name": "Jaw Breaker",
+      "category": "burgers",
+      "costPrice": 420,
+      "price": 699,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 308,
+      "name": "Jaw Breaker Combo",
+      "category": "burgers",
+      "costPrice": 480,
+      "price": 799,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 309,
+      "name": "Fajita Burger",
+      "category": "burgers",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 310,
+      "name": "Fajita Combo",
+      "category": "burgers",
+      "costPrice": 420,
+      "price": 699,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 311,
+      "name": "Fish Burger",
+      "category": "burgers",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 312,
+      "name": "Fish Burger Combo",
+      "category": "burgers",
+      "costPrice": 360,
+      "price": 599,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 313,
+      "name": "Tower Burger",
+      "category": "burgers",
+      "costPrice": 390,
+      "price": 649,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 314,
+      "name": "Tower Burger (Fish)",
+      "category": "burgers",
+      "costPrice": 450,
+      "price": 749,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 315,
+      "name": "Bigbites Burger",
+      "category": "burgers",
+      "costPrice": 420,
+      "price": 699,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 316,
+      "name": "Bigbites Combo",
+      "category": "burgers",
+      "costPrice": 480,
+      "price": 799,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 317,
+      "name": "Zigzag Burger",
+      "category": "burgers",
+      "costPrice": 270,
+      "price": 449,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 318,
+      "name": "Zigzag Combo",
+      "category": "burgers",
+      "costPrice": 360,
+      "price": 599,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 319,
+      "name": "Grilled Burger",
+      "category": "burgers",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 320,
+      "name": "Grilled Combo",
+      "category": "burgers",
+      "costPrice": 420,
+      "price": 699,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 321,
+      "name": "Codzilla Burger",
+      "category": "burgers",
+      "costPrice": 420,
+      "price": 699,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 322,
+      "name": "Codzilla Combo",
+      "category": "burgers",
+      "costPrice": 480,
+      "price": 799,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 323,
+      "name": "Kraken Burger",
+      "category": "burgers",
+      "costPrice": 450,
+      "price": 749,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 324,
+      "name": "Kraken Combo",
+      "category": "burgers",
+      "costPrice": 495,
+      "price": 825,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 325,
+      "name": "Crispy Burger",
+      "category": "burgers",
+      "costPrice": 210,
+      "price": 349,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 326,
+      "name": "Crispy Combo",
+      "category": "burgers",
+      "costPrice": 330,
+      "price": 549,
+      "stock": 50,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 401,
+      "name": "Chicken Tikka (S)",
+      "category": "pizza",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 402,
+      "name": "Chicken Tikka (M)",
+      "category": "pizza",
+      "costPrice": 660,
+      "price": 1099,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 403,
+      "name": "Chicken Tikka (L)",
+      "category": "pizza",
+      "costPrice": 840,
+      "price": 1399,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 404,
+      "name": "Chicken Tikka (XL)",
+      "category": "pizza",
+      "costPrice": 1020,
+      "price": 1699,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 405,
+      "name": "Chicken Fajita (S)",
+      "category": "pizza",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 406,
+      "name": "Chicken Fajita (M)",
+      "category": "pizza",
+      "costPrice": 660,
+      "price": 1099,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 407,
+      "name": "Chicken Fajita (L)",
+      "category": "pizza",
+      "costPrice": 840,
+      "price": 1399,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 408,
+      "name": "Chicken Fajita (XL)",
+      "category": "pizza",
+      "costPrice": 1020,
+      "price": 1699,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 409,
+      "name": "Chicken Mexicana (S)",
+      "category": "pizza",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 410,
+      "name": "Chicken Mexicana (M)",
+      "category": "pizza",
+      "costPrice": 660,
+      "price": 1099,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 411,
+      "name": "Chicken Mexicana (L)",
+      "category": "pizza",
+      "costPrice": 840,
+      "price": 1399,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 412,
+      "name": "Chicken Mexicana (XL)",
+      "category": "pizza",
+      "costPrice": 1020,
+      "price": 1699,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 413,
+      "name": "Mexicana Sicilian (S)",
+      "category": "pizza",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 414,
+      "name": "Mexicana Sicilian (M)",
+      "category": "pizza",
+      "costPrice": 660,
+      "price": 1099,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 415,
+      "name": "Mexicana Sicilian (L)",
+      "category": "pizza",
+      "costPrice": 840,
+      "price": 1399,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 416,
+      "name": "Mexicana Sicilian (XL)",
+      "category": "pizza",
+      "costPrice": 1020,
+      "price": 1699,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 417,
+      "name": "Chicken Pepperoni (S)",
+      "category": "pizza",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 418,
+      "name": "Chicken Pepperoni (M)",
+      "category": "pizza",
+      "costPrice": 660,
+      "price": 1099,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 419,
+      "name": "Chicken Pepperoni (L)",
+      "category": "pizza",
+      "costPrice": 840,
+      "price": 1399,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 420,
+      "name": "Chicken Pepperoni (XL)",
+      "category": "pizza",
+      "costPrice": 1020,
+      "price": 1699,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 421,
+      "name": "Fish Pizza (S)",
+      "category": "pizza",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 422,
+      "name": "Fish Pizza (M)",
+      "category": "pizza",
+      "costPrice": 660,
+      "price": 1099,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 423,
+      "name": "Fish Pizza (L)",
+      "category": "pizza",
+      "costPrice": 840,
+      "price": 1399,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 424,
+      "name": "Fish Pizza (XL)",
+      "category": "pizza",
+      "costPrice": 1020,
+      "price": 1699,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 425,
+      "name": "Crown Special (M)",
+      "category": "pizza",
+      "costPrice": 600,
+      "price": 999,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 426,
+      "name": "Crown Special (L)",
+      "category": "pizza",
+      "costPrice": 900,
+      "price": 1499,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 427,
+      "name": "Crown Special (XL)",
+      "category": "pizza",
+      "costPrice": 1140,
+      "price": 1899,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 501,
+      "name": "Fries (Regular)",
       "category": "sides",
-      "price": 150,
-      "stock": 196,
+      "costPrice": 105,
+      "price": 175,
+      "stock": 100,
       "image": "assets/4.png"
     },
     {
-      "id": 5,
-      "name": "Coke",
-      "category": "drinks",
-      "price": 80,
-      "stock": 494,
-      "image": "assets/5.png"
+      "id": 502,
+      "name": "Fries (Large)",
+      "category": "sides",
+      "costPrice": 150,
+      "price": 249,
+      "stock": 100,
+      "image": "assets/4.png"
     },
     {
-      "id": 6,
-      "name": "Fish Burger",
-      "category": "fish",
-      "price": 400,
-      "stock": 47,
-      "image": "assets/1.png"
+      "id": 503,
+      "name": "Mayo Fries",
+      "category": "sides",
+      "costPrice": 210,
+      "price": 349,
+      "stock": 100,
+      "image": "assets/4.png"
     },
     {
-      "id": 7,
-      "name": "Deal 1: Burger Combo",
+      "id": 504,
+      "name": "Dip Sauce (Tartar)",
+      "category": "sides",
+      "costPrice": 40,
+      "price": 79,
+      "stock": 100,
+      "image": "assets/4.png"
+    },
+    {
+      "id": 505,
+      "name": "Dip Sauce (Garlic)",
+      "category": "sides",
+      "costPrice": 40,
+      "price": 79,
+      "stock": 100,
+      "image": "assets/4.png"
+    },
+    {
+      "id": 506,
+      "name": "Dip Sauce (Garlic Mayo)",
+      "category": "sides",
+      "costPrice": 40,
+      "price": 79,
+      "stock": 100,
+      "image": "assets/4.png"
+    },
+    {
+      "id": 507,
+      "name": "Pizza Fries (S)",
+      "category": "sides",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 508,
+      "name": "Pizza Fries (M)",
+      "category": "sides",
+      "costPrice": 510,
+      "price": 849,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 509,
+      "name": "Pizza Fries (L)",
+      "category": "sides",
+      "costPrice": 720,
+      "price": 1199,
+      "stock": 50,
+      "image": "assets/icon_pizza.png"
+    },
+    {
+      "id": 601,
+      "name": "Mix Value Box",
       "category": "deals",
-      "costPrice": 0,
-      "price": 999,
-      "stock": 29,
-      "image": "assets/deal1.jpg"
+      "costPrice": 1140,
+      "price": 1899,
+      "stock": 30,
+      "image": "assets/icon_burger.png"
     },
     {
-      "id": 8,
-      "name": "Deal 2: Fish Special",
+      "id": 602,
+      "name": "Fish Value Box",
       "category": "deals",
-      "costPrice": 0,
-      "price": 1499,
-      "stock": 24,
-      "image": "https://raw.githubusercontent.com/syedahsanzafar/MrCod/master/images/deal_2:_fish_special.png"
-    },
-    {
-      "id": 9,
-      "name": "Deal 3: Family Pack",
-      "category": "deals",
-      "costPrice": 0,
+      "costPrice": 1200,
       "price": 1999,
-      "stock": 19,
-      "image": "https://raw.githubusercontent.com/syedahsanzafar/MrCod/master/images/deal_3:_family_pack.png"
+      "stock": 30,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 603,
+      "name": "Chicken Value Box",
+      "category": "deals",
+      "costPrice": 1200,
+      "price": 1999,
+      "stock": 30,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 604,
+      "name": "Zigzag Combo",
+      "category": "deals",
+      "costPrice": 540,
+      "price": 899,
+      "stock": 30,
+      "image": "assets/icon_burger.png"
+    },
+    {
+      "id": 701,
+      "name": "Kids Meal 1 (Chicken Pc)",
+      "category": "kids",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 702,
+      "name": "Kids Meal 2 (4 Nuggets)",
+      "category": "kids",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
+    },
+    {
+      "id": 703,
+      "name": "Kids Meal 3 (4 Finger Fish)",
+      "category": "kids",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_fish.png"
+    },
+    {
+      "id": 704,
+      "name": "Kids Meal 4 (1 Crispy Chicken)",
+      "category": "kids",
+      "costPrice": 300,
+      "price": 499,
+      "stock": 50,
+      "image": "assets/icon_chicken.png"
     }
   ],
-  "sales": [
-    {
-      "date": "2026-01-05T06:26:26.482Z",
-      "amount": 1650,
-      "items": [
-        {
-          "name": "Fish & Chips",
-          "qty": 1,
-          "price": 850,
-          "category": "fish"
-        },
-        {
-          "name": "Zinger Burger",
-          "qty": 1,
-          "price": 450,
-          "category": "burgers"
-        },
-        {
-          "name": "Chicken Burger",
-          "qty": 1,
-          "price": 350,
-          "category": "burgers"
-        }
-      ]
-    },
-    {
-      "date": "2026-01-24T05:55:41.310Z",
-      "amount": 230,
-      "items": [
-        {
-          "name": "French Fries",
-          "qty": 1,
-          "price": 150,
-          "costPrice": 0,
-          "category": "sides"
-        },
-        {
-          "name": "Coke",
-          "qty": 1,
-          "price": 80,
-          "costPrice": 0,
-          "category": "drinks"
-        }
-      ]
-    },
-    {
-      "date": "2026-01-24T05:59:06.147Z",
-      "amount": 80,
-      "items": [
-        {
-          "name": "Coke",
-          "qty": 1,
-          "price": 80,
-          "costPrice": 0,
-          "category": "drinks"
-        }
-      ]
-    },
-    {
-      "date": "2026-01-24T06:05:52.854Z",
-      "amount": 80,
-      "items": [
-        {
-          "name": "Coke",
-          "qty": 1,
-          "price": 80,
-          "costPrice": 0,
-          "category": "drinks"
-        }
-      ]
-    },
-    {
-      "date": "2026-01-24T06:07:05.441Z",
-      "amount": 400,
-      "items": [
-        {
-          "name": "Fish Burger",
-          "qty": 1,
-          "price": 400,
-          "costPrice": 0,
-          "category": "fish"
-        }
-      ]
-    },
-    {
-      "orderId": 1000,
-      "date": "2026-01-24T06:11:37.285Z",
-      "amount": 350,
-      "items": [
-        {
-          "name": "Chicken Burger",
-          "qty": 1,
-          "price": 350,
-          "costPrice": 0,
-          "category": "burgers"
-        }
-      ]
-    },
-    {
-      "orderId": 1001,
-      "date": "2026-01-24T06:13:02.805Z",
-      "amount": 6377,
-      "items": [
-        {
-          "name": "Deal 2: Fish Special",
-          "qty": 1,
-          "price": 1499,
-          "costPrice": 0,
-          "category": "deals"
-        },
-        {
-          "name": "Deal 3: Family Pack",
-          "qty": 1,
-          "price": 1999,
-          "costPrice": 0,
-          "category": "deals"
-        },
-        {
-          "name": "Deal 1: Burger Combo",
-          "qty": 1,
-          "price": 999,
-          "costPrice": 0,
-          "category": "deals"
-        },
-        {
-          "name": "Fish & Chips",
-          "qty": 1,
-          "price": 850,
-          "costPrice": 0,
-          "category": "fish"
-        },
-        {
-          "name": "Zinger Burger",
-          "qty": 1,
-          "price": 450,
-          "costPrice": 0,
-          "category": "burgers"
-        },
-        {
-          "name": "Chicken Burger",
-          "qty": 1,
-          "price": 350,
-          "costPrice": 0,
-          "category": "burgers"
-        },
-        {
-          "name": "French Fries",
-          "qty": 1,
-          "price": 150,
-          "costPrice": 0,
-          "category": "sides"
-        },
-        {
-          "name": "Coke",
-          "qty": 1,
-          "price": 80,
-          "costPrice": 0,
-          "category": "drinks"
-        }
-      ]
-    },
-    {
-      "orderId": 1002,
-      "date": "2026-01-24T06:16:00.792Z",
-      "amount": 150,
-      "items": [
-        {
-          "name": "French Fries",
-          "qty": 1,
-          "price": 150,
-          "costPrice": 0,
-          "category": "sides"
-        }
-      ]
-    },
-    {
-      "orderId": 1003,
-      "date": "2026-01-24T06:21:24.783Z",
-      "amount": 400,
-      "items": [
-        {
-          "name": "Fish Burger",
-          "qty": 1,
-          "price": 400,
-          "costPrice": 0,
-          "category": "fish"
-        }
-      ]
-    },
-    {
-      "orderId": 1004,
-      "date": "2026-01-24T06:32:36.158Z",
-      "amount": 80,
-      "items": [
-        {
-          "name": "Coke",
-          "qty": 1,
-          "price": 80,
-          "costPrice": 0,
-          "category": "drinks"
-        }
-      ]
-    },
-    {
-      "orderId": 1005,
-      "date": "2026-01-24T06:49:44.518Z",
-      "amount": 400,
-      "items": [
-        {
-          "name": "Fish Burger",
-          "qty": 1,
-          "price": 400,
-          "costPrice": 0,
-          "category": "fish"
-        }
-      ]
-    },
-    {
-      "orderId": 1006,
-      "date": "2026-01-24T06:49:50.968Z",
-      "amount": 450,
-      "items": [
-        {
-          "name": "Zinger Burger",
-          "qty": 1,
-          "price": 450,
-          "costPrice": 0,
-          "category": "burgers"
-        }
-      ]
-    },
-    {
-      "orderId": 1000,
-      "date": "2026-01-24T07:10:43.141Z",
-      "amount": 230,
-      "items": [
-        {
-          "name": "Coke",
-          "qty": 1,
-          "price": 80,
-          "costPrice": 0,
-          "category": "drinks"
-        },
-        {
-          "name": "French Fries",
-          "qty": 1,
-          "price": 150,
-          "costPrice": 0,
-          "category": "sides"
-        }
-      ]
-    }
-  ],
+  "sales": [],
   "expenses": {},
-  "updatedAt": "2026-01-25T09:57:39.114Z"
+  "updatedAt": "2026-01-25T17:32:01.882Z"
 }

@@ -815,8 +815,21 @@
           "qty": 1
         }
       ]
+    },
+    {
+      "id": 1054,
+      "date": "2026-01-27T10:26:13.486Z",
+      "total": 449,
+      "items": [
+        {
+          "id": 104,
+          "name": "Zigzag (Burger)",
+          "price": 449,
+          "qty": 1
+        }
+      ]
     }
   ],
   "categories": [],
-  "lastUpdated": 1769509157192
+  "lastUpdated": 1769509573487
 }

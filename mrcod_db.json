@@ -789,7 +789,20 @@
           "qty": 1
         }
       ]
+    },
+    {
+      "id": 1049,
+      "date": "2026-01-27T10:00:18.842Z",
+      "total": 499,
+      "items": [
+        {
+          "id": 201,
+          "name": "Chicken Tikka (Small)",
+          "price": 499,
+          "qty": 1
+        }
+      ]
     }
   ],
-  "lastUpdated": 1769507596448
+  "lastUpdated": 1769508018843
 }

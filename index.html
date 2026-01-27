@@ -1595,57 +1595,873 @@
         let currentCategory = 'all';
         let inventory = JSON.parse(localStorage.getItem('mrcod_inventory')) || [
             // INV_START
-            { id: 101, name: 'Crunch Burger', category: 'burgers', image: 'images/crunch burger.jpg', variants: [{ label: 'Burger', price: 299 }, { label: 'Combo', price: 449 }] },
-            { id: 102, name: 'Crispy Burger', category: 'burgers', image: 'images/chicken zigzag burger.jpg', variants: [{ label: 'Burger', price: 349 }, { label: 'Combo', price: 549 }] },
-            { id: 103, name: 'Fire Cracker', category: 'burgers', image: 'images/fire cracker burger.jpg', variants: [{ label: 'Burger', price: 449 }, { label: 'Combo', price: 599 }] },
-            { id: 104, name: 'Zigzag', category: 'burgers', image: 'images/chicken zigzag burger.jpg', variants: [{ label: 'Burger', price: 449 }, { label: 'Combo', price: 599 }] },
-            { id: 105, name: 'Jalapeno Burger', category: 'burgers', image: 'images/jalapeno burger.jpg', variants: [{ label: 'Burger', price: 499 }, { label: 'Combo', price: 699 }] },
-            { id: 106, name: 'Fish Burger', category: 'burgers', image: 'images/fish burger.jpg', variants: [{ label: 'Burger', price: 499 }, { label: 'Combo', price: 599 }] },
-            { id: 107, name: 'Fajita Burger', category: 'burgers', image: 'images/fajita burger.jpg', variants: [{ label: 'Burger', price: 499 }, { label: 'Combo', price: 699 }] },
-            { id: 108, name: 'Grilled Burger', category: 'burgers', image: 'images/grilled burger.jpg', variants: [{ label: 'Burger', price: 499 }, { label: 'Combo', price: 699 }] },
-            { id: 109, name: 'Big Bites', category: 'burgers', image: 'images/bigbites burger.jpg', variants: [{ label: 'Burger', price: 699 }, { label: 'Combo', price: 799 }] },
-            { id: 110, name: 'Jaw Breaker', category: 'burgers', image: 'images/jaw breaker burger.jpg', variants: [{ label: 'Burger', price: 699 }, { label: 'Combo', price: 799 }] },
-            { id: 111, name: 'Codzilla Burger', category: 'burgers', image: 'images/godzilla burger.jpg', variants: [{ label: 'Burger', price: 699 }, { label: 'Combo', price: 799 }] },
-            { id: 112, name: 'Tower Burger (Chicken)', category: 'burgers', image: 'images/tower burger.jpg', variants: [{ label: 'Burger', price: 649 }, { label: 'Combo', price: 799 }] },
-            { id: 113, name: 'Tower Burger (Fish)', category: 'burgers', image: 'images/tower burger.jpg', variants: [{ label: 'Burger', price: 749 }, { label: 'Combo', price: 899 }] },
-            { id: 114, name: 'Kraken Burger', category: 'burgers', image: 'images/kraken burger.png', variants: [{ label: 'Burger', price: 749 }, { label: 'Combo', price: 825 }] },
-            { id: 201, name: 'Chicken Tikka', category: 'pizza', image: 'images/chicken tikka pizza.png', variants: [{ label: 'Small', price: 499 }, { label: 'Medium', price: 1099 }, { label: 'Large', price: 1399 }, { label: 'X-Large', price: 1699 }, { label: '21 Inch', price: 2799 }] },
-            { id: 202, name: 'Chicken Fajita', category: 'pizza', image: 'images/chicken fajita pizza.jpg', variants: [{ label: 'Small', price: 499 }, { label: 'Medium', price: 1099 }, { label: 'Large', price: 1399 }, { label: 'X-Large', price: 1699 }, { label: '21 Inch', price: 2799 }] },
-            { id: 203, name: 'Chicken Mexicana', category: 'pizza', image: 'images/chicken tikka pizza.png', variants: [{ label: 'Small', price: 499 }, { label: 'Medium', price: 1099 }, { label: 'Large', price: 1399 }, { label: 'X-Large', price: 1699 }, { label: '21 Inch', price: 2799 }] },
-            { id: 204, name: 'Chicken Mexicana Sicilian', category: 'pizza', image: 'images/sicilian pizza.jpg', variants: [{ label: 'Small', price: 499 }, { label: 'Medium', price: 1099 }, { label: 'Large', price: 1399 }, { label: 'X-Large', price: 1699 }, { label: '21 Inch', price: 2799 }] },
-            { id: 205, name: 'Chicken Pepperoni', category: 'pizza', image: 'images/pepperoni pizza.jpg', variants: [{ label: 'Small', price: 499 }, { label: 'Medium', price: 1099 }, { label: 'Large', price: 1399 }, { label: 'X-Large', price: 1699 }, { label: '21 Inch', price: 2799 }] },
-            { id: 206, name: 'Fish Pizza', category: 'pizza', image: 'images/fish pizza.jpg', variants: [{ label: 'Small', price: 499 }, { label: 'Medium', price: 1099 }, { label: 'Large', price: 1399 }, { label: 'X-Large', price: 1699 }, { label: '21 Inch', price: 2799 }] },
-            { id: 207, name: 'Margherita DOP', category: 'pizza', image: 'images/chicken fajita pizza.jpg', variants: [{ label: 'Small', price: 499 }, { label: 'Medium', price: 1099 }, { label: 'Large', price: 1399 }, { label: 'X-Large', price: 1699 }, { label: '21 Inch', price: 2799 }] },
-            { id: 208, name: 'Supremo', category: 'pizza', image: 'images/pepperoni pizza.jpg', variants: [{ label: 'Small', price: 499 }, { label: 'Medium', price: 1099 }, { label: 'Large', price: 1399 }, { label: 'X-Large', price: 1699 }, { label: '21 Inch', price: 2799 }] },
-            { id: 209, name: 'Crown Special Pizza', category: 'pizza', image: 'images/crown pizza.png', variants: [{ label: 'Medium', price: 999 }, { label: 'Large', price: 1499 }, { label: 'X-Large', price: 1899 }, { label: '21 Inch', price: 2799 }] },
-            { id: 210, name: 'Calzone Pizza', category: 'pizza', image: 'images/sicilian pizza.jpg', variants: [{ label: 'Small', price: 499 }, { label: 'Medium', price: 899 }, { label: 'Large', price: 1399 }] },
-            { id: 211, name: 'Thin Crust Pizza', category: 'pizza', image: 'images/pepperoni pizza.jpg', variants: [{ label: 'Medium', price: 1199 }, { label: 'Large', price: 1499 }] },
-            { id: 212, name: 'Pizza Fries', category: 'pizza', image: 'images/pizza fries.jpg', variants: [{ label: 'Small', price: 499 }, { label: 'Medium', price: 849 }, { label: 'Large', price: 1199 }] },
-            { id: 301, name: 'Fried Fish', category: 'fish', image: 'images/fish 1 pc.png', variants: [{ label: '1 pc', price: 499 }, { label: '3 pc', price: 1249 }, { label: '5 pc', price: 2249 }] },
-            { id: 302, name: 'Fish O Fillet', category: 'fish', image: 'images/fish o fillet 1.jpg', variants: [{ label: '1 pc', price: 649 }, { label: '2 pc', price: 1049 }] },
-            { id: 303, name: 'Finger Fish', category: 'fish', image: 'images/finger fish.png', variants: [{ label: 'Regular', price: 449 }, { label: 'Combo', price: 599 }] },
-            { id: 304, name: 'Fish Shawarma', category: 'fish', image: 'images/fish shawarma.png', variants: [{ label: 'Regular', price: 399 }, { label: 'Combo', price: 549 }] },
-            { id: 305, name: 'Fried Prawns', category: 'fish', image: 'images/fried prawns.png', variants: [{ label: 'Regular', price: 549 }, { label: 'Combo', price: 599 }] },
-            { id: 401, name: 'Chicken Piece', category: 'chicken', image: 'images/chicken piece.png', variants: [{ label: '1 pc', price: 299 }, { label: '2 pc', price: 599 }, { label: '9 pc', price: 1699 }] },
-            { id: 402, name: 'Chicken Nuggets', category: 'chicken', image: 'images/nugget.png', variants: [{ label: '6 pc', price: 399 }, { label: '9 pc', price: 499 }] },
-            { id: 403, name: 'Chicken Wings', category: 'chicken', image: 'images/chicken wings.png', variants: [{ label: '6 pc', price: 499 }, { label: '12 pc', price: 699 }] },
-            { id: 404, name: 'Crispy Bites', category: 'chicken', image: 'images/crispy bites.png', variants: [{ label: 'Regular', price: 449 }, { label: 'Combo', price: 499 }] },
-            { id: 405, name: 'Chicken Strip', category: 'chicken', image: 'images/chicken strips.png', price: 499 },
-            { id: 406, name: 'Chicken Shawarma', category: 'chicken', image: 'images/chicken shawarma.png', variants: [{ label: 'Regular', price: 349 }, { label: 'Combo', price: 449 }] },
-            { id: 501, name: 'Fries', category: 'fries-dips', image: 'images/fries with sauce.png', variants: [{ label: 'Regular', price: 175 }, { label: 'Large', price: 249 }, { label: 'Mayo', price: 349 }] },
-            { id: 502, name: 'Dip Sauces', category: 'fries-dips', image: 'images/garlic mayo sauce.png', variants: [{ label: 'Tartar', price: 79 }, { label: 'Garlic', price: 79 }, { label: 'Garlic Mayo', price: 79 }] },
-            { id: 601, name: 'Mix Value Box', category: 'deals', image: 'images/deal 1 1899.png', price: 1899 },
-            { id: 602, name: 'Fish Value Box', category: 'deals', image: 'images/deal 2 1999.png', price: 1999 },
-            { id: 603, name: 'Chicken Value Box', category: 'deals', image: 'images/deal 3 1999.png', price: 1999 },
-            { id: 604, name: 'Zigzag Combo', category: 'deals', image: 'images/deal 4 899.png', price: 899 },
-            { id: 701, name: 'Kids Meal 1', category: 'kids-meals', image: 'images/kids deal 1.png', price: 499 },
-            { id: 702, name: 'Kids Meal 2', category: 'kids-meals', image: 'images/kid deal 2.png', price: 499 },
-            { id: 703, name: 'Kids Meal 3', category: 'kids-meals', image: 'images/kids deal 3.png', price: 499 },
-            { id: 704, name: 'Kids Meal 4', category: 'kids-meals', image: 'images/kid deal 4.png', price: 499 },
-            { id: 805, name: 'Coke', category: 'drinks', image: 'images/coke.png', variants: [{ label: 'Small', price: 120 }, { label: 'Large', price: 220 }] },
-            { id: 806, name: 'Fanta', category: 'drinks', image: 'images/fanta.png', variants: [{ label: 'Small', price: 120 }, { label: 'Large', price: 220 }] },
-            { id: 807, name: 'Sprite', category: 'drinks', image: 'images/sprite.png', variants: [{ label: 'Small', price: 120 }, { label: 'Large', price: 220 }] },
-            { id: 808, name: 'Water', category: 'drinks', image: 'images/water.png', variants: [{ label: 'Small', price: 80 }, { label: 'Large', price: 150 }] }
+
+          {
+                    "id": 101,
+                    "name": "Crunch Burger",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\crunch burger.jpg",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 300,
+                                        "costPrice": null
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 449,
+                                        "costPrice": null
+                              }
+                    ],
+                    "price": 300
+          },
+          {
+                    "id": 102,
+                    "name": "Crispy Burger",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\chicken zigzag burger.jpg",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 349
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 549
+                              }
+                    ]
+          },
+          {
+                    "id": 103,
+                    "name": "Fire Cracker",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\fire cracker burger.jpg",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 449
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 599
+                              }
+                    ]
+          },
+          {
+                    "id": 104,
+                    "name": "Zigzag",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\chicken zigzag burger.jpg",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 449
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 599
+                              }
+                    ]
+          },
+          {
+                    "id": 105,
+                    "name": "Jalapeno Burger",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\jalapeno burger.jpg",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 699
+                              }
+                    ]
+          },
+          {
+                    "id": 106,
+                    "name": "Fish Burger",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\fish burger.jpg",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 599
+                              }
+                    ]
+          },
+          {
+                    "id": 107,
+                    "name": "Fajita Burger",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\fajita burger.jpg",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 699
+                              }
+                    ]
+          },
+          {
+                    "id": 108,
+                    "name": "Grilled Burger",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\grilled burger.jpg",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 699
+                              }
+                    ]
+          },
+          {
+                    "id": 109,
+                    "name": "Big Bites",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\bigbites burger.jpg",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 699
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 799
+                              }
+                    ]
+          },
+          {
+                    "id": 110,
+                    "name": "Jaw Breaker",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\jaw breaker burger.jpg",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 699
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 799
+                              }
+                    ]
+          },
+          {
+                    "id": 111,
+                    "name": "Codzilla Burger",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\godzilla burger.jpg",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 699
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 799
+                              }
+                    ]
+          },
+          {
+                    "id": 112,
+                    "name": "Tower Burger (Chicken)",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\tower burger.jpg",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 649
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 799
+                              }
+                    ]
+          },
+          {
+                    "id": 113,
+                    "name": "Tower Burger (Fish)",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\tower burger.jpg",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 749
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 899
+                              }
+                    ]
+          },
+          {
+                    "id": 114,
+                    "name": "Kraken Burger",
+                    "category": "burgers",
+                    "image": "d:\\mr_cod\\images\\kraken burger.png",
+                    "variants": [
+                              {
+                                        "label": "Burger",
+                                        "price": 749
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 825
+                              }
+                    ]
+          },
+          {
+                    "id": 201,
+                    "name": "Chicken Tikka",
+                    "category": "pizza",
+                    "image": "d:\\mr_cod\\images\\chicken tikka pizza.png",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Medium",
+                                        "price": 1099
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 1399
+                              },
+                              {
+                                        "label": "X-Large",
+                                        "price": 1699
+                              },
+                              {
+                                        "label": "21 Inch",
+                                        "price": 2799
+                              }
+                    ]
+          },
+          {
+                    "id": 202,
+                    "name": "Chicken Fajita",
+                    "category": "pizza",
+                    "image": "d:\\mr_cod\\images\\chicken fajita pizza.jpg",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Medium",
+                                        "price": 1099
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 1399
+                              },
+                              {
+                                        "label": "X-Large",
+                                        "price": 1699
+                              },
+                              {
+                                        "label": "21 Inch",
+                                        "price": 2799
+                              }
+                    ]
+          },
+          {
+                    "id": 203,
+                    "name": "Chicken Mexicana",
+                    "category": "pizza",
+                    "image": "d:\\mr_cod\\images\\chicken tikka pizza.png",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Medium",
+                                        "price": 1099
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 1399
+                              },
+                              {
+                                        "label": "X-Large",
+                                        "price": 1699
+                              },
+                              {
+                                        "label": "21 Inch",
+                                        "price": 2799
+                              }
+                    ]
+          },
+          {
+                    "id": 204,
+                    "name": "Chicken Mexicana Sicilian",
+                    "category": "pizza",
+                    "image": "d:\\mr_cod\\images\\sicilian pizza.jpg",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Medium",
+                                        "price": 1099
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 1399
+                              },
+                              {
+                                        "label": "X-Large",
+                                        "price": 1699
+                              },
+                              {
+                                        "label": "21 Inch",
+                                        "price": 2799
+                              }
+                    ]
+          },
+          {
+                    "id": 205,
+                    "name": "Chicken Pepperoni",
+                    "category": "pizza",
+                    "image": "d:\\mr_cod\\images\\pepperoni pizza.jpg",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Medium",
+                                        "price": 1099
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 1399
+                              },
+                              {
+                                        "label": "X-Large",
+                                        "price": 1699
+                              },
+                              {
+                                        "label": "21 Inch",
+                                        "price": 2799
+                              }
+                    ]
+          },
+          {
+                    "id": 206,
+                    "name": "Fish Pizza",
+                    "category": "pizza",
+                    "image": "d:\\mr_cod\\images\\fish pizza.jpg",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Medium",
+                                        "price": 1099
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 1399
+                              },
+                              {
+                                        "label": "X-Large",
+                                        "price": 1699
+                              },
+                              {
+                                        "label": "21 Inch",
+                                        "price": 2799
+                              }
+                    ]
+          },
+          {
+                    "id": 207,
+                    "name": "Margherita DOP",
+                    "category": "pizza",
+                    "image": "d:\\mr_cod\\images\\chicken fajita pizza.jpg",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Medium",
+                                        "price": 1099
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 1399
+                              },
+                              {
+                                        "label": "X-Large",
+                                        "price": 1699
+                              },
+                              {
+                                        "label": "21 Inch",
+                                        "price": 2799
+                              }
+                    ]
+          },
+          {
+                    "id": 208,
+                    "name": "Supremo",
+                    "category": "pizza",
+                    "image": "d:\\mr_cod\\images\\pepperoni pizza.jpg",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Medium",
+                                        "price": 1099
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 1399
+                              },
+                              {
+                                        "label": "X-Large",
+                                        "price": 1699
+                              },
+                              {
+                                        "label": "21 Inch",
+                                        "price": 2799
+                              }
+                    ]
+          },
+          {
+                    "id": 209,
+                    "name": "Crown Special Pizza",
+                    "category": "pizza",
+                    "image": "d:\\mr_cod\\images\\crown pizza.png",
+                    "variants": [
+                              {
+                                        "label": "Medium",
+                                        "price": 999
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 1499
+                              },
+                              {
+                                        "label": "X-Large",
+                                        "price": 1899
+                              },
+                              {
+                                        "label": "21 Inch",
+                                        "price": 2799
+                              }
+                    ]
+          },
+          {
+                    "id": 210,
+                    "name": "Calzone Pizza",
+                    "category": "pizza",
+                    "image": "d:\\mr_cod\\images\\sicilian pizza.jpg",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Medium",
+                                        "price": 899
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 1399
+                              }
+                    ]
+          },
+          {
+                    "id": 211,
+                    "name": "Thin Crust Pizza",
+                    "category": "pizza",
+                    "image": "d:\\mr_cod\\images\\pepperoni pizza.jpg",
+                    "variants": [
+                              {
+                                        "label": "Medium",
+                                        "price": 1199
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 1499
+                              }
+                    ]
+          },
+          {
+                    "id": 212,
+                    "name": "Pizza Fries",
+                    "category": "pizza",
+                    "image": "d:\\mr_cod\\images\\pizza fries.jpg",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "Medium",
+                                        "price": 849
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 1199
+                              }
+                    ]
+          },
+          {
+                    "id": 301,
+                    "name": "Fried Fish",
+                    "category": "fish",
+                    "image": "d:\\mr_cod\\images\\fish 1 pc.png",
+                    "variants": [
+                              {
+                                        "label": "1 pc",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "3 pc",
+                                        "price": 1249
+                              },
+                              {
+                                        "label": "5 pc",
+                                        "price": 2249
+                              }
+                    ]
+          },
+          {
+                    "id": 302,
+                    "name": "Fish O Fillet",
+                    "category": "fish",
+                    "image": "d:\\mr_cod\\images\\fish o fillet 1.jpg",
+                    "variants": [
+                              {
+                                        "label": "1 pc",
+                                        "price": 649
+                              },
+                              {
+                                        "label": "2 pc",
+                                        "price": 1049
+                              }
+                    ]
+          },
+          {
+                    "id": 303,
+                    "name": "Finger Fish",
+                    "category": "fish",
+                    "image": "d:\\mr_cod\\images\\finger fish.png",
+                    "variants": [
+                              {
+                                        "label": "Regular",
+                                        "price": 449
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 599
+                              }
+                    ]
+          },
+          {
+                    "id": 304,
+                    "name": "Fish Shawarma",
+                    "category": "fish",
+                    "image": "d:\\mr_cod\\images\\fish shawarma.png",
+                    "variants": [
+                              {
+                                        "label": "Regular",
+                                        "price": 399
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 549
+                              }
+                    ]
+          },
+          {
+                    "id": 305,
+                    "name": "Fried Prawns",
+                    "category": "fish",
+                    "image": "d:\\mr_cod\\images\\fried prawns.png",
+                    "variants": [
+                              {
+                                        "label": "Regular",
+                                        "price": 549
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 599
+                              }
+                    ]
+          },
+          {
+                    "id": 401,
+                    "name": "Chicken Piece",
+                    "category": "chicken",
+                    "image": "d:\\mr_cod\\images\\chicken piece.png",
+                    "variants": [
+                              {
+                                        "label": "1 pc",
+                                        "price": 299
+                              },
+                              {
+                                        "label": "2 pc",
+                                        "price": 599
+                              },
+                              {
+                                        "label": "9 pc",
+                                        "price": 1699
+                              }
+                    ]
+          },
+          {
+                    "id": 402,
+                    "name": "Chicken Nuggets",
+                    "category": "chicken",
+                    "image": "d:\\mr_cod\\images\\nugget.png",
+                    "variants": [
+                              {
+                                        "label": "6 pc",
+                                        "price": 399
+                              },
+                              {
+                                        "label": "9 pc",
+                                        "price": 499
+                              }
+                    ]
+          },
+          {
+                    "id": 403,
+                    "name": "Chicken Wings",
+                    "category": "chicken",
+                    "image": "d:\\mr_cod\\images\\chicken wings.png",
+                    "variants": [
+                              {
+                                        "label": "6 pc",
+                                        "price": 499
+                              },
+                              {
+                                        "label": "12 pc",
+                                        "price": 699
+                              }
+                    ]
+          },
+          {
+                    "id": 404,
+                    "name": "Crispy Bites",
+                    "category": "chicken",
+                    "image": "d:\\mr_cod\\images\\crispy bites.png",
+                    "variants": [
+                              {
+                                        "label": "Regular",
+                                        "price": 449
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 499
+                              }
+                    ]
+          },
+          {
+                    "id": 405,
+                    "name": "Chicken Strip",
+                    "category": "chicken",
+                    "image": "d:\\mr_cod\\images\\chicken strips.png",
+                    "price": 499
+          },
+          {
+                    "id": 406,
+                    "name": "Chicken Shawarma",
+                    "category": "chicken",
+                    "image": "d:\\mr_cod\\images\\chicken shawarma.png",
+                    "variants": [
+                              {
+                                        "label": "Regular",
+                                        "price": 349
+                              },
+                              {
+                                        "label": "Combo",
+                                        "price": 449
+                              }
+                    ]
+          },
+          {
+                    "id": 501,
+                    "name": "Fries",
+                    "category": "fries-dips",
+                    "image": "d:\\mr_cod\\images\\fries with sauce.png",
+                    "variants": [
+                              {
+                                        "label": "Regular",
+                                        "price": 175
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 249
+                              },
+                              {
+                                        "label": "Mayo",
+                                        "price": 349
+                              }
+                    ]
+          },
+          {
+                    "id": 502,
+                    "name": "Dip Sauces",
+                    "category": "fries-dips",
+                    "image": "d:\\mr_cod\\images\\garlic mayo sauce.png",
+                    "variants": [
+                              {
+                                        "label": "Tartar",
+                                        "price": 79
+                              },
+                              {
+                                        "label": "Garlic",
+                                        "price": 79
+                              },
+                              {
+                                        "label": "Garlic Mayo",
+                                        "price": 79
+                              }
+                    ]
+          },
+          {
+                    "id": 601,
+                    "name": "Mix Value Box",
+                    "category": "deals",
+                    "image": "d:\\mr_cod\\images\\deal 1 1899.png",
+                    "price": 1899
+          },
+          {
+                    "id": 602,
+                    "name": "Fish Value Box",
+                    "category": "deals",
+                    "image": "d:\\mr_cod\\images\\deal 2 1999.png",
+                    "price": 1999
+          },
+          {
+                    "id": 603,
+                    "name": "Chicken Value Box",
+                    "category": "deals",
+                    "image": "d:\\mr_cod\\images\\deal 3 1999.png",
+                    "price": 1999
+          },
+          {
+                    "id": 604,
+                    "name": "Zigzag Combo",
+                    "category": "deals",
+                    "image": "d:\\mr_cod\\images\\deal 4 899.png",
+                    "price": 899
+          },
+          {
+                    "id": 701,
+                    "name": "Kids Meal 1",
+                    "category": "kids-meals",
+                    "image": "d:\\mr_cod\\images\\kids deal 1.png",
+                    "price": 499
+          },
+          {
+                    "id": 702,
+                    "name": "Kids Meal 2",
+                    "category": "kids-meals",
+                    "image": "d:\\mr_cod\\images\\kid deal 2.png",
+                    "price": 499
+          },
+          {
+                    "id": 703,
+                    "name": "Kids Meal 3",
+                    "category": "kids-meals",
+                    "image": "d:\\mr_cod\\images\\kids deal 3.png",
+                    "price": 499
+          },
+          {
+                    "id": 704,
+                    "name": "Kids Meal 4",
+                    "category": "kids-meals",
+                    "image": "d:\\mr_cod\\images\\kid deal 4.png",
+                    "price": 499
+          },
+          {
+                    "id": 805,
+                    "name": "Coke",
+                    "category": "drinks",
+                    "image": "d:\\mr_cod\\images\\coke.png",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 120
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 220
+                              }
+                    ]
+          },
+          {
+                    "id": 806,
+                    "name": "Fanta",
+                    "category": "drinks",
+                    "image": "d:\\mr_cod\\images\\fanta.png",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 120
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 220
+                              }
+                    ]
+          },
+          {
+                    "id": 807,
+                    "name": "Sprite",
+                    "category": "drinks",
+                    "image": "d:\\mr_cod\\images\\sprite.png",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 120
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 220
+                              }
+                    ]
+          },
+          {
+                    "id": 808,
+                    "name": "Water",
+                    "category": "drinks",
+                    "image": "d:\\mr_cod\\images\\water.png",
+                    "variants": [
+                              {
+                                        "label": "Small",
+                                        "price": 80
+                              },
+                              {
+                                        "label": "Large",
+                                        "price": 150
+                              }
+                    ]
+          }
             // INV_END
         ];
         let categories = JSON.parse(localStorage.getItem('mrcod_categories')) || [

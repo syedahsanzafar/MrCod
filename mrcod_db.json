@@ -1628,19 +1628,6 @@
           "qty": 1
         }
       ]
-    },
-    {
-      "id": 1047,
-      "date": "2026-01-27T09:06:50.791Z",
-      "total": 299,
-      "items": [
-        {
-          "id": 101,
-          "name": "Crunch Burger (Burger)",
-          "price": 299,
-          "qty": 1
-        }
-      ]
     }
   ]
 }

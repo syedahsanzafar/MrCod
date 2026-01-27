@@ -828,8 +828,21 @@
           "qty": 1
         }
       ]
+    },
+    {
+      "id": 1055,
+      "date": "2026-01-27T10:34:15.864Z",
+      "total": 699,
+      "items": [
+        {
+          "id": 110,
+          "name": "Jaw Breaker (Burger)",
+          "price": 699,
+          "qty": 1
+        }
+      ]
     }
   ],
   "categories": [],
-  "lastUpdated": 1769509573487
+  "lastUpdated": 1769510055864
 }

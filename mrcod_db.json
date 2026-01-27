@@ -802,7 +802,20 @@
           "qty": 1
         }
       ]
+    },
+    {
+      "id": 1050,
+      "date": "2026-01-27T10:02:37.181Z",
+      "total": 499,
+      "items": [
+        {
+          "id": 107,
+          "name": "Fajita Burger (Burger)",
+          "price": 499,
+          "qty": 1
+        }
+      ]
     }
   ],
-  "lastUpdated": 1769508018843
+  "lastUpdated": 1769508157181
 }

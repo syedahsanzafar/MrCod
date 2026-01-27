@@ -776,7 +776,20 @@
           "qty": 1
         }
       ]
+    },
+    {
+      "id": 1048,
+      "date": "2026-01-27T09:53:16.447Z",
+      "total": 499,
+      "items": [
+        {
+          "id": 202,
+          "name": "Chicken Fajita (Small)",
+          "price": 499,
+          "qty": 1
+        }
+      ]
     }
   ],
-  "lastUpdated": 0
+  "lastUpdated": 1769507596448
 }

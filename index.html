@@ -1437,6 +1437,8 @@
                     style="background:var(--success); margin-bottom:10px;">Restore File</button>
                 <button class="btn-primary" onclick="updateOfflineSoftware()"
                     style="background:var(--accent); margin-bottom:10px;">Update Offline Software</button>
+                <button class="btn-primary" onclick="resetToDefaultMenu()"
+                    style="background:var(--brand-red); margin-bottom:10px;">Reset to Default Menu</button>
                 <div id="backupStatus" style="margin-top:10px;"></div>
 
                 <div style="margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px;">
@@ -2516,4 +2518,10 @@
                 }
             } catch (e) {
                 console.error('Smart sync error:', e);
-                if (statusEl) statusEl.style.display = 'non
+                if (statusEl) statusEl.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

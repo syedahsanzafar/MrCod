@@ -2,18 +2,18 @@
   "name": "MR. COD - Premium POS",
   "short_name": "Mr. Cod POS",
   "description": "Premium ERP & POS System for MR. COD",
-  "start_url": "index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#dc2626",
   "icons": [
     {
-      "src": "images/logo.png",
+      "src": "./images/logo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "images/logo.png",
+      "src": "./images/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
